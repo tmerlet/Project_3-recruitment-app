@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  longitude: 1.5
+  latitude: 1.5
+  dob: 2014-09-05
+  distance_travel: 1
+  abroad: false
+  availability_now: false
+
+two:
+  longitude: 1.5
+  latitude: 1.5
+  dob: 2014-09-05
+  distance_travel: 1
+  abroad: false
+  availability_now: false

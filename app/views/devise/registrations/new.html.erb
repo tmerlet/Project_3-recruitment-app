@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Sign up a new <%= @resource_type%></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -12,6 +12,11 @@
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
+  <% if @resource_type == Employee %>
+    Show Fields for Employee
+  <% elsif @resource_type == Contractor %>
+    Show Fields for Contractor
+  <% end %>
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 

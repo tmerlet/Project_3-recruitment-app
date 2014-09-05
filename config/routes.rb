@@ -1,5 +1,14 @@
 RecruitmentProject3App::Application.routes.draw do
-  devise_for :users
+  
+
+  # commented out for multi user registration
+  # devise_for :users
+
+  # added for multi user registration
+  devise_for :users, controllers: {sessions: :sessions}, :skip => :registrations
+  devise_for :contractors, :employees, :skip => :sessions, :controllers => { :registrations => 'registrations' }
+
+  
 
   resources :jobsearches
 
