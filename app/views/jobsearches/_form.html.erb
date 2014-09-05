@@ -1,0 +1,65 @@
+<%= form_for(@jobsearch) do |f| %>
+  <% if @jobsearch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jobsearch.errors.count, "error") %> prohibited this jobsearch from being saved:</h2>
+
+      <ul>
+      <% @jobsearch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contacted %><br />
+    <%= f.check_box :contacted %>
+  </div>
+  <div class="field">
+    <%= f.label :datecontacted %><br />
+    <%= f.datetime_select :datecontacted %>
+  </div>
+  <div class="field">
+    <%= f.label :offered %><br />
+    <%= f.check_box :offered %>
+  </div>
+  <div class="field">
+    <%= f.label :dateoffered %><br />
+    <%= f.datetime_select :dateoffered %>
+  </div>
+  <div class="field">
+    <%= f.label :rejected %><br />
+    <%= f.check_box :rejected %>
+  </div>
+  <div class="field">
+    <%= f.label :daterejected %><br />
+    <%= f.datetime_select :daterejected %>
+  </div>
+  <div class="field">
+    <%= f.label :dateaccepted %><br />
+    <%= f.check_box :dateaccepted %>
+  </div>
+  <div class="field">
+    <%= f.label :declined %><br />
+    <%= f.check_box :declined %>
+  </div>
+  <div class="field">
+    <%= f.label :datedeclined %><br />
+    <%= f.datetime_select :datedeclined %>
+  </div>
+  <div class="field">
+    <%= f.label :firstsearchposition %><br />
+    <%= f.number_field :firstsearchposition %>
+  </div>
+  <div class="field">
+    <%= f.label :job_id %><br />
+    <%= f.number_field :job_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

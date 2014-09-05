@@ -1,0 +1,45 @@
+<h1>Listing jobsearches</h1>
+
+<table>
+  <tr>
+    <th>Contacted</th>
+    <th>Datecontacted</th>
+    <th>Offered</th>
+    <th>Dateoffered</th>
+    <th>Rejected</th>
+    <th>Daterejected</th>
+    <th>Dateaccepted</th>
+    <th>Declined</th>
+    <th>Datedeclined</th>
+    <th>Firstsearchposition</th>
+    <th>Job</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @jobsearches.each do |jobsearch| %>
+  <tr>
+    <td><%= jobsearch.contacted %></td>
+    <td><%= jobsearch.datecontacted %></td>
+    <td><%= jobsearch.offered %></td>
+    <td><%= jobsearch.dateoffered %></td>
+    <td><%= jobsearch.rejected %></td>
+    <td><%= jobsearch.daterejected %></td>
+    <td><%= jobsearch.dateaccepted %></td>
+    <td><%= jobsearch.declined %></td>
+    <td><%= jobsearch.datedeclined %></td>
+    <td><%= jobsearch.firstsearchposition %></td>
+    <td><%= jobsearch.job_id %></td>
+    <td><%= jobsearch.user_id %></td>
+    <td><%= link_to 'Show', jobsearch %></td>
+    <td><%= link_to 'Edit', edit_jobsearch_path(jobsearch) %></td>
+    <td><%= link_to 'Destroy', jobsearch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Jobsearch', new_jobsearch_path %>

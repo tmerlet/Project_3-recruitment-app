@@ -1,4 +1,21 @@
 RecruitmentProject3App::Application.routes.draw do
+  devise_for :users
+
+  resources :jobsearches
+
+
+  resources :jobs
+
+
+  resources :companies
+
+
+  resources :addresses
+
+
+  root to: "companies#index"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

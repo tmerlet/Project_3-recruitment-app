@@ -6,6 +6,21 @@ gem 'rails', '3.2.17'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'devise'
+gem 'cancan'
+gem 'carrierwave'
+gem 'ransack'
+gem 'rmagick', :require => 'RMagick'
+gem 'geocoder'
+
+group :development do
+gem 'letter_opener'
+gem 'pry-rails'
+gem 'pry-stack_explorer'
+gem 'binding_of_caller'
+gem 'better_errors'
+gem 'meta_request'
+end
 
 
 # Gems used only for assets and not required

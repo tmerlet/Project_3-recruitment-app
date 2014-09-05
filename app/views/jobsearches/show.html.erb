@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contacted:</b>
+  <%= @jobsearch.contacted %>
+</p>
+
+<p>
+  <b>Datecontacted:</b>
+  <%= @jobsearch.datecontacted %>
+</p>
+
+<p>
+  <b>Offered:</b>
+  <%= @jobsearch.offered %>
+</p>
+
+<p>
+  <b>Dateoffered:</b>
+  <%= @jobsearch.dateoffered %>
+</p>
+
+<p>
+  <b>Rejected:</b>
+  <%= @jobsearch.rejected %>
+</p>
+
+<p>
+  <b>Daterejected:</b>
+  <%= @jobsearch.daterejected %>
+</p>
+
+<p>
+  <b>Dateaccepted:</b>
+  <%= @jobsearch.dateaccepted %>
+</p>
+
+<p>
+  <b>Declined:</b>
+  <%= @jobsearch.declined %>
+</p>
+
+<p>
+  <b>Datedeclined:</b>
+  <%= @jobsearch.datedeclined %>
+</p>
+
+<p>
+  <b>Firstsearchposition:</b>
+  <%= @jobsearch.firstsearchposition %>
+</p>
+
+<p>
+  <b>Job:</b>
+  <%= @jobsearch.job_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @jobsearch.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_jobsearch_path(@jobsearch) %> |
+<%= link_to 'Back', jobsearches_path %>
