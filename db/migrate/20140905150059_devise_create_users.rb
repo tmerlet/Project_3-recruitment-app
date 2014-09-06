@@ -19,8 +19,25 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
 
+      ## Additional User columns
+      t.string :name
+      t.string :phone
+      t.string :email
+      t.datetime :last_active
+
       ## Sti
       t.string :type
+
+      ## Employee model specific
+      t.integer :company_id
+
+      ## Contractor model specific 
+      t.float :longitude
+      t.float :latitude
+      t.date :dob
+      t.integer :distance_travel
+      t.boolean :abroad
+      t.boolean :available_now
 
       ## Confirmable
       # t.string   :confirmation_token

@@ -7,6 +7,10 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :postcode
       t.string :country
 
+      # for the polymorphic association
+      t.integer :addressable_id
+      t.string :addressable_type
+
       t.timestamps
     end
   end

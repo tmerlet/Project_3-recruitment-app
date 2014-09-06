@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140905154512) do
+ActiveRecord::Schema.define(:version => 20140906100913) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20140905154512) do
     t.string   "city"
     t.string   "postcode"
     t.string   "country"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "companies", :force => true do |t|
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20140905154512) do
     t.date     "end_date"
     t.float    "longitude"
     t.float    "latitude"
+    t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -72,13 +75,21 @@ ActiveRecord::Schema.define(:version => 20140905154512) do
     t.datetime "datedeclined"
     t.integer  "firstsearchposition"
     t.integer  "job_id"
-    t.integer  "user_id"
+    t.integer  "contractor_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
 
+  create_table "qualifications", :force => true do |t|
+    t.string   "name"
+    t.string   "subdivision"
+    t.string   "industry"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
+    t.string   "email"
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -88,7 +99,17 @@ ActiveRecord::Schema.define(:version => 20140905154512) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
+    t.string   "phone"
+    t.datetime "last_active"
     t.string   "type"
+    t.integer  "company_id"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.date     "dob"
+    t.integer  "distance_travel"
+    t.boolean  "abroad"
+    t.boolean  "available_now"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

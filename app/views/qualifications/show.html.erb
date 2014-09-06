@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @qualification.name %>
+</p>
+
+<p>
+  <b>Subdivision:</b>
+  <%= @qualification.subdivision %>
+</p>
+
+<p>
+  <b>Industry:</b>
+  <%= @qualification.industry %>
+</p>
+
+
+<%= link_to 'Edit', edit_qualification_path(@qualification) %> |
+<%= link_to 'Back', qualifications_path %>

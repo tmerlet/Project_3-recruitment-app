@@ -1,6 +1,9 @@
 RecruitmentProject3App::Application.routes.draw do
   
 
+  resources :qualifications
+
+
   # commented out for multi user registration
   # devise_for :users
 

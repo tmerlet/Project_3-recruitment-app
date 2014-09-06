@@ -9,6 +9,7 @@ class CreateJobs < ActiveRecord::Migration
       t.date :end_date
       t.float :longitude
       t.float :latitude
+      t.integer :company_id
 
       t.timestamps
     end

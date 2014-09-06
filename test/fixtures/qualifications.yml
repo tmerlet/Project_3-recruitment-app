@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  subdivision: MyString
+  industry: MyString
+
+two:
+  name: MyString
+  subdivision: MyString
+  industry: MyString

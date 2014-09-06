@@ -12,7 +12,7 @@ class CreateJobsearches < ActiveRecord::Migration
       t.datetime :datedeclined
       t.integer :firstsearchposition
       t.integer :job_id
-      t.integer :user_id
+      t.integer :contractor_id
 
       t.timestamps
     end
