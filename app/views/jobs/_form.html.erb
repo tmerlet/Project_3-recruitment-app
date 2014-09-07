@@ -43,6 +43,35 @@
     <%= f.label :latitude %><br />
     <%= f.text_field :latitude %>
   </div>
+  <div>
+    <h2>Address</h2>
+    <%= fields_for(@job.address) do |u| %>
+      <%= u.hidden_field :addressable_id %>
+      <%= u.hidden_field :addressable_type %>
+      <div class="field">
+        <%= u.label :line1 %><br />
+        <%= u.text_field :line1 %>
+      </div>
+      <div class="field">
+        <%= u.label :line2 %><br />
+        <%= u.text_field :line2 %>
+      </div>
+      <div class="field">
+        <%= u.label :city %><br />
+        <%= u.text_field :city %>
+      </div>
+      <div class="field">
+        <%= u.label :postcode %><br />
+        <%= u.text_field :postcode %>
+      </div>
+      <div class="field">
+        <%= u.label :country %><br />
+        <%= u.text_field :country %>
+      </div>
+    <% end %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

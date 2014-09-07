@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(:version => 20140906122400) do
 
   create_table "addresses", :force => true do |t|
-    t.string   "line1"
+    t.string   "line1",                          :null => false
     t.string   "line2"
-    t.string   "city"
-    t.string   "postcode"
-    t.string   "country"
+    t.string   "city",                           :null => false
+    t.string   "postcode",         :limit => 55, :null => false
+    t.string   "country",                        :null => false
     t.integer  "addressable_id"
     t.string   "addressable_type"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "companies", :force => true do |t|
@@ -32,26 +32,9 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "contractors", :force => true do |t|
-    t.float    "longitude"
-    t.float    "latitude"
-    t.date     "dob"
-    t.integer  "distance_travel"
-    t.boolean  "abroad"
-    t.boolean  "availability_now"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
   create_table "contractors_qualifications", :id => false, :force => true do |t|
     t.integer "contractor_id"
     t.integer "qualification_id"
-  end
-
-  create_table "employees", :force => true do |t|
-    t.string   "company_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "jobs", :force => true do |t|

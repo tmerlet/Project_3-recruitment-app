@@ -26,7 +26,7 @@ jobsearch2 = Jobsearch.create()
 qualification1 = Qualification.create(name: "iata level 1")
 qualification2 = Qualification.create(name: "iata level 2")
 
-address1 = Address.create(line1: "first random address")
+address1 = Address.create(line1: "first random address", )
 address2 = Address.create(line1: "second random address")
 address3 = Address.create(line1: "third random address")
 

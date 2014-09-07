@@ -33,7 +33,7 @@
   <% elsif @resource_type == Contractor %>
     <div>
       <%= f.label :dob %><br />
-      <%= f.date_select :dob %>
+      <%= f.date_select :dob, :start_year => 1999, :end_year => 1920 %>
     </div> 
     <div>
       <%= f.label :distance_travel %><br />
@@ -44,12 +44,11 @@
       <%= f.check_box :abroad %>
     </div>
     <div class="field">
-      <%= f.label :availability_now %><br />
-      <%= f.check_box :availability_now %>
+      <%= f.label :available_now %><br />
+      <%= f.check_box :available_now %>
     </div>
-
+    <div><%= f.submit "Sign up" %></div>
   <% end %>
-  <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
