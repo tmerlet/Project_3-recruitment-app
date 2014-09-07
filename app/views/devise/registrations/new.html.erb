@@ -3,19 +3,51 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <div>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
 
-  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+  <div>
+    <%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  <div>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
 
   <% if @resource_type == Employee %>
     Show Fields for Employee
   <% elsif @resource_type == Contractor %>
-    Show Fields for Contractor
+    <div>
+      <%= f.label :dob %><br />
+      <%= f.date_select :dob %>
+    </div> 
+    <div>
+      <%= f.label :distance_travel %><br />
+      <%= f.select(:distance_travel, ["Unlimited", "1000 miles", "500 miles", "200 miles", "100 miles", "50 miles", "20 miles"]) %>
+    </div> 
+    <div class="field">
+      <%= f.label :abroad %><br />
+      <%= f.check_box :abroad %>
+    </div>
+    <div class="field">
+      <%= f.label :availability_now %><br />
+      <%= f.check_box :availability_now %>
+    </div>
+
   <% end %>
   <div><%= f.submit "Sign up" %></div>
 <% end %>
