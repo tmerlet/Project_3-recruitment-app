@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(:version => 20140906122400) do
 
   create_table "addresses", :force => true do |t|
-    t.string   "line1",                          :null => false
+    t.string   "line1"
     t.string   "line2"
-    t.string   "city",                           :null => false
-    t.string   "postcode",         :limit => 55, :null => false
-    t.string   "country",                        :null => false
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "country"
     t.integer  "addressable_id"
     t.string   "addressable_type"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "companies", :force => true do |t|

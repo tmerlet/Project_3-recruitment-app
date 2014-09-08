@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     # if resource.type == "Contractor" 
     #   resource.address = Address.new
     # end
-    # binding.pry
+    binding.pry
   end
 
   def create
