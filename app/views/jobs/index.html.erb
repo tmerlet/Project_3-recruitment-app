@@ -8,8 +8,6 @@
     <th>Cancelled</th>
     <th>Start date</th>
     <th>End date</th>
-    <th>Longitude</th>
-    <th>Latitude</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,8 +21,6 @@
     <td><%= job.cancelled %></td>
     <td><%= job.start_date %></td>
     <td><%= job.end_date %></td>
-    <td><%= job.longitude %></td>
-    <td><%= job.latitude %></td>
     <td><%= link_to 'Show', job %></td>
     <td><%= link_to 'Edit', edit_job_path(job) %></td>
     <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>

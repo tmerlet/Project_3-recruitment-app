@@ -3,6 +3,7 @@ class Job < ActiveRecord::Base
 
   has_one :address, as: :addressable, dependent: :destroy
   validates :address, :presence => true
+  validates_associated :address
   
   has_many :jobsearches
   belongs_to :company
