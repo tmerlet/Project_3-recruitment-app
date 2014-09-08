@@ -25,7 +25,8 @@ class JobsController < ApplicationController
   # GET /jobs/new.json
   def new
     @job = Job.new
-    @job.address = Address.new
+    @job.build_address
+    # @job.address = Address.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,11 +43,13 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(params[:job])
-    @job.address = Address.new(params[:address])
+    binding.pry
+    # @job.address = Address.new(params[:address])
+    
 
     respond_to do |format|
       if @job.save
-        @job.address.save
+        # @job.address.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
         format.json { render json: @job, status: :created, location: @job }
       else

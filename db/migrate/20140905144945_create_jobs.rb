@@ -7,8 +7,6 @@ class CreateJobs < ActiveRecord::Migration
       t.boolean :cancelled
       t.date :start_date
       t.date :end_date
-      t.float :longitude
-      t.float :latitude
       t.integer :company_id
 
       t.timestamps
