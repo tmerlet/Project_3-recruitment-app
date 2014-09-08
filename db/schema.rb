@@ -44,8 +44,6 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
     t.boolean  "cancelled"
     t.date     "start_date"
     t.date     "end_date"
-    t.float    "longitude"
-    t.float    "latitude"
     t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

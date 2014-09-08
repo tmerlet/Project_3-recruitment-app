@@ -47,6 +47,31 @@
       <%= f.label :available_now %><br />
       <%= f.check_box :available_now %>
     </div>
+    <% binding.pry %>
+    <%= f.fields_for :address, resource.address do |ff| %>
+      <%= ff.hidden_field :addressable_id %>
+      <%= ff.hidden_field :addressable_type %>
+      <div class="field">
+        <%= ff.label :line1 %><br />
+        <%= ff.text_field :line1 %>
+      </div>
+      <div class="field">
+        <%= ff.label :line2 %><br />
+        <%= ff.text_field :line2 %>
+      </div>
+      <div class="field">
+        <%= ff.label :city %><br />
+        <%= ff.text_field :city %>
+      </div>
+      <div class="field">
+        <%= ff.label :postcode %><br />
+        <%= ff.text_field :postcode %>
+      </div>
+      <div class="field">
+        <%= ff.label :country %><br />
+        <%= ff.text_field :country %>
+      </div>
+    <% end %>
     <div><%= f.submit "Sign up" %></div>
   <% end %>
 <% end %>

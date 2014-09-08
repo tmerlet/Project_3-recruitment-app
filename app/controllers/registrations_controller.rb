@@ -1,25 +1,24 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :determine_resource_type 
+  
 
   def new
-
-    super
-    if resource.type == "contractor"
+    build_resource({})
+    if resource.type == "Contractor"
       resource.build_address
     end
+    @validatable = devise_mapping.validatable?
+    if @validatable
+      @minimum_password_length = resource_class.password_length.min
+    end
+    respond_with self.resource
   end
+
 
   def create
     puts "the resource that will be created is a #{@resource_type}"
     super
 
-    # if resrouce == Contractor, save the new Address through the polymorphic association.  started looking at the problem
-    # if resource.type == "Contractor"
-    #   if resource.save
-    #     binding.pry
-    #     resource.address.save
-    #   end
-    # end
   end
 
   def determine_resource_type
