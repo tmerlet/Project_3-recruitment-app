@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
     t.string   "city"
     t.string   "postcode"
     t.string   "country"
+    t.float    "latitude"
+    t.float    "longitude"
     t.integer  "addressable_id"
     t.string   "addressable_type"
     t.datetime "created_at",       :null => false
@@ -44,8 +46,6 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
     t.boolean  "cancelled"
     t.date     "start_date"
     t.date     "end_date"
-    t.float    "longitude"
-    t.float    "latitude"
     t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -97,8 +97,6 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
     t.datetime "last_active"
     t.string   "type"
     t.integer  "company_id"
-    t.float    "longitude"
-    t.float    "latitude"
     t.date     "dob"
     t.integer  "distance_travel"
     t.boolean  "abroad"
