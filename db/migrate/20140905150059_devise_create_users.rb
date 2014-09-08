@@ -32,8 +32,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.integer :company_id
 
       ## Contractor model specific 
-      t.float :longitude
-      t.float :latitude
       t.date :dob
       t.integer :distance_travel
       t.boolean :abroad
