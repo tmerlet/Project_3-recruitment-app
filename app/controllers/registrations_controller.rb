@@ -4,12 +4,9 @@ class RegistrationsController < Devise::RegistrationsController
   def new
 
     super
-
-    # if resource == contractor, add a new Address through the polymorphic assocation... started looking at the problem
-    # if resource.type == "Contractor" 
-    #   resource.address = Address.new
-    # end
-    binding.pry
+    if resource.type == "contractor"
+      resource.build_address
+    end
   end
 
   def create

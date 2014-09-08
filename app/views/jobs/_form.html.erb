@@ -37,32 +37,32 @@
   </div>
   <div>
     <h2>Address</h2>
-    <%= fields_for(@job.address) do |u| %>
-      <%= u.hidden_field :addressable_id %>
-      <%= u.hidden_field :addressable_type %>
+
+    <%= f.fields_for :address, @job.address do |ff| %>
+      <%= ff.hidden_field :addressable_id %>
+      <%= ff.hidden_field :addressable_type %>
       <div class="field">
-        <%= u.label :line1 %><br />
-        <%= u.text_field :line1 %>
+        <%= ff.label :line1 %><br />
+        <%= ff.text_field :line1 %>
       </div>
       <div class="field">
-        <%= u.label :line2 %><br />
-        <%= u.text_field :line2 %>
+        <%= ff.label :line2 %><br />
+        <%= ff.text_field :line2 %>
       </div>
       <div class="field">
-        <%= u.label :city %><br />
-        <%= u.text_field :city %>
+        <%= ff.label :city %><br />
+        <%= ff.text_field :city %>
       </div>
       <div class="field">
-        <%= u.label :postcode %><br />
-        <%= u.text_field :postcode %>
+        <%= ff.label :postcode %><br />
+        <%= ff.text_field :postcode %>
       </div>
       <div class="field">
-        <%= u.label :country %><br />
-        <%= u.text_field :country %>
+        <%= ff.label :country %><br />
+        <%= ff.text_field :country %>
       </div>
     <% end %>
   </div>
-
 
   <div class="actions">
     <%= f.submit %>

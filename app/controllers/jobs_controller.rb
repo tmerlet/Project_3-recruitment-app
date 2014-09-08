@@ -26,7 +26,7 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     @job.build_address
-    # this is the equivalent of @Job.address = Address.new
+    # @job.address = Address.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,12 +43,13 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(params[:job])
-    @job.address = Address.new(params[:address])
-    # consider refactoring to user nested attributes for address.
+    binding.pry
+    # @job.address = Address.new(params[:address])
+    
 
     respond_to do |format|
       if @job.save
-        @job.address.save
+        # @job.address.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
         format.json { render json: @job, status: :created, location: @job }
       else
@@ -62,10 +63,9 @@ class JobsController < ApplicationController
   # PUT /jobs/1.json
   def update
     @job = Job.find(params[:id])
-binding.pry
+
     respond_to do |format|
       if @job.update_attributes(params[:job])
-        @job.address.update_attributes(params[:address])
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { head :no_content }
       else

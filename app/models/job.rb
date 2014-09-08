@@ -1,9 +1,10 @@
 class Job < ActiveRecord::Base
-  attr_accessible :abroad, :cancelled, :description, :end_date, :filled, :latitude, :longitude, :start_date
+  attr_accessible :abroad, :cancelled, :description, :end_date, :filled, :latitude, :longitude, :start_date, :address_attributes
 
   has_one :address, as: :addressable, dependent: :destroy
-  validates :address, :presence => true
   validates_associated :address
+
+  accepts_nested_attributes_for :address
   
   has_many :jobsearches
   belongs_to :company
