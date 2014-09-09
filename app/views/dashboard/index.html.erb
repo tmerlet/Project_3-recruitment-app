@@ -1,0 +1,20 @@
+<div ng-controller="contractorDashController">
+  
+  <div id="wrapper">
+
+    <div id="header-wrapper-div">
+      <div class="header-divs" id="header-div1">My details
+      </div>
+      <div class="header-divs" id="header-div2"><img src="">Contractor Dashboard
+      </div>
+      <div class="header-divs" id="header-div3">
+        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

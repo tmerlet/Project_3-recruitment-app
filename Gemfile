@@ -12,6 +12,7 @@ gem 'carrierwave'
 gem 'ransack'
 gem 'rmagick', :require => 'RMagick'
 gem 'geocoder'
+gem 'angularjs-rails'
 
 group :development do
 gem 'letter_opener'

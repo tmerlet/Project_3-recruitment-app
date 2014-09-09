@@ -1,5 +1,6 @@
 RecruitmentProject3App::Application.routes.draw do
   
+  root to: "dashboard#index"
 
   resources :qualifications
 
