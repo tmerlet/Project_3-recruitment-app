@@ -27,10 +27,9 @@ RecruitmentProject3App::Application.routes.draw do
   resources :addresses
 
 
-  root to: "companies#index"
-
   get 'dashboard/get_current_user', to: "dashboard#get_current_user"
   put 'dashboard/update_available_now', to: "dashboard#update_available_now"
+  put 'dashboard/update_distance_travel', to: "dashboard#update_distance_travel"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
     t.string   "type"
     t.integer  "company_id"
     t.date     "dob"
-    t.integer  "distance_travel"
+    t.string   "distance_travel"
     t.boolean  "abroad"
     t.boolean  "available_now"
     t.datetime "created_at",                             :null => false

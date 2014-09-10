@@ -2,7 +2,6 @@ class DashboardController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-
   end
 
   def get_current_user
@@ -25,9 +24,17 @@ class DashboardController < ApplicationController
       format.json { render json: contractor }
     end
   end
+
+  def update_distance_travel
+
+      contractor = Contractor.find(params[:id])
+      contractor.distance_travel = params[:distance_travel]
+      contractor.save
+
+    respond_to do |format|
+      format.html { render json: contractor }
+      format.json { render json: contractor }
+    end
+  end
   
-
-
-
-
 end
