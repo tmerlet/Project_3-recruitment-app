@@ -2,19 +2,52 @@
   
   <div id="wrapper">
 
-    <div id="header-wrapper-div">
-      <div class="header-divs" id="header-div1">My details
+    <div class="container">
+
+      <div class="row">
+        <div class="header-divs col-md-4 col-sm-12 col-xs-12" id="header-div1"><img src=""> 
+          DASHBOARD
+        </div>
+        <div class="header-divs col-md-4 col-sm-12 col-xs-12" id="header-div2">
+          My details
+        </div>
+        <div class="header-divs col-md-4 col-sm-12 col-xs-12" id="header-div3">
+          <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <% end %>
+        </div>
       </div>
-      <div class="header-divs" id="header-div2"><img src="">Contractor Dashboard
+
+      <div class="row">
+
+        <div class="col-xs-7" id="body-div1"><img src=""> 
+          <div> {{ contractor }} </div>
+        </div>
+
+        <div class="col-xs-7" id="body-div1"><img src=""> 
+          <div>
+          <button ng-click="available()">
+            Available now: {{ contractor.available_now }}
+          </button>
+          </div>
+        </div>
+
+        <div class="col-xs-7" id="body-div1"><img src=""> 
+          <div>
+          <button ng-click="available()">
+            I will travel: {{ contractor.distance_travel }}
+          </button>
+          </div>
+        </div>
+
       </div>
-      <div class="header-divs" id="header-div3">
-        <% if user_signed_in? %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-        <% end %>
-      </div>
+
+
+
     </div>
   </div>
 </div>
+
 
 
 

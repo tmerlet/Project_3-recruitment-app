@@ -10,6 +10,7 @@ RecruitmentProject3App::Application.routes.draw do
 
   # added for multi user registration
   devise_for :users, controllers: {sessions: :sessions}, :skip => :registrations
+  
   devise_for :contractors, :employees, :skip => :sessions, :controllers => { :registrations => 'registrations' }
 
   
@@ -28,6 +29,8 @@ RecruitmentProject3App::Application.routes.draw do
 
   root to: "companies#index"
 
+  get 'dashboard/get_current_user', to: "dashboard#get_current_user"
+  put 'dashboard/update_available_now', to: "dashboard#update_available_now"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

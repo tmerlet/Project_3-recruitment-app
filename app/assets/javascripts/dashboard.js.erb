@@ -1,0 +1,27 @@
+
+(function() {
+
+  var app = angular.module('recruitmentApp', []);
+
+  app.controller('contractorDashController', ["$scope", "$http", function($scope, $http) {
+
+    $scope.contractor = [];
+
+    $http.get('/dashboard/get_current_user.json').success(function(data){
+      $scope.contractor = data
+    })
+
+    $scope.available = function() {
+
+      $http.put('dashboard/update_available_now.json', { id: $scope.contractor.id }).success(function (data){
+        if ($scope.contractor.available_now)
+           $scope.contractor.available_now = false
+        else
+           $scope.contractor.available_now = true
+      })
+     
+    }
+
+  }])
+
+})();

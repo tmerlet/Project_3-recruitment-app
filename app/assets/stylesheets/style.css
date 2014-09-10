@@ -11,16 +11,10 @@ html, body {
 }
 
 #wrapper {
-  width: 992px;
   margin: 0 auto;
 }
 
-#header-wrapper-div {
-  /*clear: both;*/
-  font-size: 0;
-  margin-bottom: 5px;
-  height: 15vh;
-}
+
 
 .header-divs {
   padding: 40px 35px 35px;
@@ -32,7 +26,6 @@ html, body {
   font-size: 25px;
   display: inline-block;
   height: 15vh;
-  width: 33%;
   border: solid #F7F7F7 5px;
 }
 
@@ -49,7 +42,7 @@ html, body {
   width: 100%;
 }
 
-#header-div1:hover, #header-div3:hover {
+#header-div1:hover, #header-div2:hover, #header-div3:hover {
   opacity: 0.5;
 }
 
