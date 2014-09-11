@@ -1,8 +1,12 @@
 (function() {
 
-  var app = angular.module('recruitmentApp', []);
+  var app = angular.module('recruitmentApp', ['ngAnimate', 'ngMap']);
 
   app.controller('contractorDashController', ["$scope", "$http", function($scope, $http) {
+
+    $scope.$on('mapsInitialized', function(event, maps) {
+      maps[0].setCenter()
+    })
 
     $scope.contractor = [];
 
@@ -12,10 +16,10 @@
 
       $scope.options = [{ name: "unlimited", id:"unlimited" }, { name: "500 miles", id:"500 miles" }, { name: "200 miles", id:"200 miles" }, { name: "100 miles", id:"100 miles" }, { name: "50 miles", id:"50 miles" }, { name: "20 miles", id:"20 miles" }];
       
-     for(var i = 0; i < $scope.options.length; i++) { 
+      for(var i = 0; i < $scope.options.length; i++) { 
         if ($scope.options[i].name ==  $scope.contractor.distance_travel){
-            $scope.selectedOption = $scope.options[i]
-        }
+          $scope.selectedOption = $scope.options[i]
+        } 
       }
     })
 
