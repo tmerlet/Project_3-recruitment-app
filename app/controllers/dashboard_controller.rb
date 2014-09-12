@@ -8,8 +8,8 @@ class DashboardController < ApplicationController
     currentuser = current_user
 
     respond_to do |format|
-      format.html { render json: currentuser }
-      format.json { render json: currentuser }
+      format.html { render json: currentuser.to_json(include: :address) }
+      format.json { render json: currentuser.to_json(include: :address) }
     end
   end
 
@@ -34,6 +34,21 @@ class DashboardController < ApplicationController
     respond_to do |format|
       format.html { render json: contractor }
       format.json { render json: contractor }
+    end
+  end
+
+  def show_job_interest
+
+      jobsearch = Jobsearch.where(contractor_id: params[:contractor_id], job_id: params[:job_id]).first_or_create
+
+      jobsearch.interested ? (jobsearch.interested = false) : (jobsearch.interested = true)
+      jobsearch.save
+
+
+      
+    respond_to do |format|
+      format.html { render json: jobsearch }
+      format.json { render json: jobsearch }
     end
   end
   

@@ -30,6 +30,7 @@ RecruitmentProject3App::Application.routes.draw do
   get 'dashboard/get_current_user', to: "dashboard#get_current_user"
   put 'dashboard/update_available_now', to: "dashboard#update_available_now"
   put 'dashboard/update_distance_travel', to: "dashboard#update_distance_travel"
+  put 'dashboard/show_job_interest', to: "dashboard#show_job_interest"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

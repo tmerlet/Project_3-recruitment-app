@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
   end
 
   create_table "jobsearches", :force => true do |t|
+    t.boolean  "interested"
+    t.datetime "dateinterested"
     t.boolean  "contacted"
     t.datetime "datecontacted"
     t.boolean  "offered"

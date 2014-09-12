@@ -1,5 +1,5 @@
 class Job < ActiveRecord::Base
-  attr_accessible :abroad, :cancelled, :description, :end_date, :filled, :latitude, :longitude, :start_date, :address_attributes
+  attr_accessible :abroad, :cancelled, :description, :end_date, :filled, :latitude, :longitude, :start_date, :address_attributes, :company_id
 
   has_one :address, as: :addressable, dependent: :destroy
   validates_associated :address

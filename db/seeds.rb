@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-contractor1 = Contractor.create(name: "contractor1", email: "contractor@gmail.com", password: "password", password_confirmation: "password")
-contractor2 = Contractor.create(name: "contractor1", email: "contractor@gmail.com", password: "password", password_confirmation: "password")
+contractor1 = Contractor.create(name: "contractor1", email: "contractor@gmail.com", password: "password", password_confirmation: "password", available_now: false)
+contractor2 = Contractor.create(name: "contractor1", email: "contractor@gmail.com", password: "password", password_confirmation: "password", available_now: false)
 
 
 employee1 = Employee.create(name: "Employee", email: "employee1@gmail.com", password: "password", password_confirmation: "password")
@@ -17,7 +17,8 @@ employee2 = Employee.create(name: "Employee", email: "employee2@gmail.com", pass
 company1 = Company.create(name: "Funny business")
 company2 = Company.create(name: "Dull business")
 
-job1 = Job.create(description: "an amazing job")
+job1 = Job.create(description: "an amazing job", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2015")
+
 job2 = Job.create(description: "boring job")
 
 jobsearch1 = Jobsearch.create()
@@ -26,9 +27,10 @@ jobsearch2 = Jobsearch.create()
 qualification1 = Qualification.create(name: "iata level 1")
 qualification2 = Qualification.create(name: "iata level 2")
 
-address1 = Address.create(line1: "first random address", )
-address2 = Address.create(line1: "second random address")
-address3 = Address.create(line1: "third random address")
+address1 = Address.create(line1: "30 murrayfield road", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+address2 = Address.create(line1: "32 murrayfield road", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+address3 = Address.create(line1: "34 murrayfield road", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+
 
 puts ""
 puts "COMPANY"

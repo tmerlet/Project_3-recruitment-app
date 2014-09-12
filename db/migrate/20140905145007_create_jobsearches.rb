@@ -1,6 +1,8 @@
 class CreateJobsearches < ActiveRecord::Migration
   def change
     create_table :jobsearches do |t|
+      t.boolean :interested
+      t.datetime :dateinterested
       t.boolean :contacted
       t.datetime :datecontacted
       t.boolean :offered
