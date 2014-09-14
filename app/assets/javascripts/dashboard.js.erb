@@ -39,15 +39,16 @@
             $scope.companyjobs = data
           })
 
-        })
-
-        $http.get('/dashboard/get_potential_contractors.json').success(function(data){
-            $scope.potentialcontractors = data
-        })
+        })     
       }
     })
 
-    // $scope.getPotentialContractors
+    $scope.putPotentialContractors = function (){
+      debugger
+      $http.get('/dashboard/put_potential_contractors.json', { id: $scope.selectedCompanyJob.id }).success(function(data){
+          $scope.potentialcontractors = data
+      })
+    }
 
     $scope.userHasSearch = function(job) {
       var interested = false
@@ -84,10 +85,9 @@
 
       $http.put('dashboard/show_job_interest.json', { contractor_id: $scope.contractor.id, job_id: job.id }).success(function (data){
         // alert("you've succeeded http inside the showjobinterest")
-       $http.get('/jobs.json').success(function(data) {
-         $scope.jobs = data
-       })
-
+        $http.get('/jobs.json').success(function(data) {
+          $scope.jobs = data
+        })
       })
     }
 

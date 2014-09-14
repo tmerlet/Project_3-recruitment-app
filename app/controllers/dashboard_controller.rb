@@ -44,7 +44,10 @@ class DashboardController < ApplicationController
     end
   end
 
-  def get_potential_contractors
+  def put_potential_contractors
+
+    binding.pry
+
 
     potentialcontractors = Contractor.where(available_now: true)
       
@@ -53,8 +56,6 @@ class DashboardController < ApplicationController
       format.json { render json: potentialcontractors.to_json(include: [:address, :jobsearches, :qualifications]) }
     end
   end
-
-
 
   def update_available_now
 
