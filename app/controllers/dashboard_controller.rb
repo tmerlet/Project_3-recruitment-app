@@ -44,7 +44,7 @@ class DashboardController < ApplicationController
     end
   end
 
-  def get_potential_contractors
+  def put_potential_contractors
 
     potentialcontractors = Contractor.where(available_now: true)
       

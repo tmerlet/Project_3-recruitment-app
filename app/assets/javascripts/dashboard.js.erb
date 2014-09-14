@@ -43,8 +43,8 @@
       }
     })
 
-    $scope.getPotentialContractors = function (){
-      $http.get('/dashboard/get_potential_contractors.json', { id: $scope.selectedCompanyJob.id }).success(function(data){
+    $scope.putPotentialContractors = function (){
+      $http.get('/dashboard/put_potential_contractors.json', { id: $scope.selectedCompanyJob.id }).success(function(data){
           $scope.potentialcontractors = data
       })
     }
