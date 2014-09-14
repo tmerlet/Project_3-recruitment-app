@@ -44,10 +44,7 @@ class DashboardController < ApplicationController
     end
   end
 
-  def put_potential_contractors
-
-    binding.pry
-
+  def get_potential_contractors
 
     potentialcontractors = Contractor.where(available_now: true)
       
