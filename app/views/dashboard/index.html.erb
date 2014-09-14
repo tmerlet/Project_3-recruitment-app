@@ -142,16 +142,24 @@
 
               <table>
                 <tr>
-                  <td>Contractor name:</td>
-                  <td> {{ potentialcontractor.name }} </td>
+                  <td>Contractor name:  {{ potentialcontractor.name }}</td>
                 </tr>
+                
                 <tr>
-                  <td>has expressed interest in this job:</td>
-                  <td> {{ potentialcontractor.jobsearches }}</td>
+                  <td ng-show="userShowedinterest(potentialcontractor)">
+                    is interested in this job specifically
+                  </td>
+                  <td ng-hide="userShowedinterest(potentialcontractor)">
+                    interest unknown
+                  </td>
+                </tr>
+
+
                 </tr>
                 <tr>
                   
                 <tr/> 
+  
                 <tr>
                   
                 <tr/> 

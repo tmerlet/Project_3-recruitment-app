@@ -90,6 +90,20 @@
       })
     }
 
+    $scope.userShowedinterest = function(potentialcontractor) {
+      var interested = false
+      for(var i =0 ; i < potentialcontractor.jobsearches.length; i++) { 
+        if (potentialcontractor.jobsearches[i].job_id == $scope.selectedCompanyJob.id) {
+          if ((potentialcontractor.jobsearches[i].interested == false) || (potentialcontractor.jobsearches[i].interested == null) || (potentialcontractor.jobsearches[i].interested == [])) {
+            interested = false
+          }else{
+            interested = true
+          }
+        }
+      }
+      return interested
+    }
+
 
   }])
 

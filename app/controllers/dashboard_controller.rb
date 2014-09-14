@@ -94,5 +94,7 @@ class DashboardController < ApplicationController
       format.json { render json: jobsearch }
     end
   end
+
+  
   
 end
