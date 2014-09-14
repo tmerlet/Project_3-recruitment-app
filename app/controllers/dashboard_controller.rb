@@ -44,9 +44,13 @@ class DashboardController < ApplicationController
     end
   end
 
-  def put_potential_contractors
+  def get_potential_contractors
 
     potentialcontractors = Contractor.where(available_now: true)
+
+    potentialcontractors.each do |contractor|
+      jobsearch = Jobsearch.where(contractor_id: contractor.id, job_id: params[:job_id]).first_or_create
+    end
       
     respond_to do |format|
       format.html { render json: potentialcontractors.to_json(include: [:address, :jobsearches, :qualifications]) }

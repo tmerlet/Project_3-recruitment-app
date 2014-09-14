@@ -114,7 +114,7 @@
 
             <div>
               select a position:</br> 
-              <select ng-options="o.description for o in companyjobs" ng-model="selectedCompanyJob" ng-change="putPotentialContractors()"></select>          
+              <select ng-options="o.description for o in companyjobs" ng-model="selectedCompanyJob" ng-change="getPotentialContractors()"></select>          
             </div>
 
             <hr/>
@@ -146,8 +146,8 @@
                   <td> {{ potentialcontractor.name }} </td>
                 </tr>
                 <tr>
-                  <td>selectedCompanyJob:</td>
-                  <td> {{ selectedCompanyJob.description }} </td>
+                  <td>has expressed interest in this job:</td>
+                  <td> {{ potentialcontractor.jobsearches | where:{job_id: selectedCompanyJob}}} </td>
                 </tr>
                 <tr>
                   

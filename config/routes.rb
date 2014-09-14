@@ -34,7 +34,7 @@ RecruitmentProject3App::Application.routes.draw do
   get 'dashboard/get_current_contractor', to: "dashboard#get_current_contractor"
   get 'dashboard/get_current_employee', to: "dashboard#get_current_employee"
   get 'dashboard/get_current_company_jobs', to: "dashboard#get_current_company_jobs"
-  get 'dashboard/put_potential_contractors', to: "dashboard#put_potential_contractors"
+  get 'dashboard/get_potential_contractors', to: "dashboard#get_potential_contractors"
   put 'dashboard/update_available_now', to: "dashboard#update_available_now"
   put 'dashboard/update_distance_travel', to: "dashboard#update_distance_travel"
   put 'dashboard/show_job_interest', to: "dashboard#show_job_interest"
