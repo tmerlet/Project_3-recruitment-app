@@ -4,24 +4,50 @@
 
   app.controller('contractorDashController', ["$scope", "$http", function($scope, $http) {
 
-  
-    $scope.contractor = [];
+    $http.get('/dashboard/get_current_user_type.json').success(function(data){
 
-    $http.get('/dashboard/get_current_user.json').success(function(data){
-      $scope.contractor = data
+      var current_user_type = data
 
-      $scope.options = [{ name: "unlimited", id:"unlimited" }, { name: "500 miles", id:"500 miles" }, { name: "200 miles", id:"200 miles" }, { name: "100 miles", id:"100 miles" }, { name: "50 miles", id:"50 miles" }, { name: "20 miles", id:"20 miles" }];
-      
-      for(var i = 0; i < $scope.options.length; i++) { 
-        if ($scope.options[i].name ==  $scope.contractor.distance_travel){
-          $scope.selectedOption = $scope.options[i]
-        } 
+      if (current_user_type == "Contractor") {
+
+        $scope.contractor = [];
+
+        $http.get('/dashboard/get_current_contractor.json').success(function(data){
+          console.log(data)
+          $scope.contractor = data
+          $scope.options = [{ name: "unlimited", id:"unlimited" }, { name: "500 miles", id:"500 miles" }, { name: "200 miles", id:"200 miles" }, { name: "100 miles", id:"100 miles" }, { name: "50 miles", id:"50 miles" }, { name: "20 miles", id:"20 miles" }];      
+          for(var i = 0; i < $scope.options.length; i++) { 
+            if ($scope.options[i].name ==  $scope.contractor.distance_travel){
+              $scope.selectedOption = $scope.options[i]
+            } 
+          }
+        })
+
+        $http.get('/jobs.json').success(function(data) {
+          $scope.jobs = data
+        })
+
+      }
+
+      if (current_user_type == "Employee") {
+
+        $scope.employee = []; 
+
+        $http.get('/dashboard/get_current_employee.json').success(function(data){
+          $scope.employee = data
+          $http.get('/dashboard/get_current_company_jobs.json').success(function(data){
+            $scope.companyjobs = data
+          })
+
+        })
+
+        $http.get('/dashboard/get_potential_contractors.json').success(function(data){
+            $scope.potentialcontractors = data
+        })
       }
     })
 
-    $http.get('/jobs.json').success(function(data) {
-      $scope.jobs = data
-    })
+    // $scope.getPotentialContractors
 
     $scope.userHasSearch = function(job) {
       var interested = false

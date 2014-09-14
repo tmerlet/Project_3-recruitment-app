@@ -1,0 +1,108 @@
+<div ng-controller="contractorDashController">
+  
+  <div id="wrapper">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="header-divs col-md-4 col-sm-12 col-xs-12" id="header-div1"><img src=""> 
+          DASHBOARD
+        </div>
+        <div class="header-divs col-md-4 col-sm-12 col-xs-12" id="header-div2">
+          My details
+        </div>
+        <div class="header-divs col-md-4 col-sm-12 col-xs-12" id="header-div3">
+          <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <% end %>
+        </div>
+      </div>
+
+      <% if current_user %>
+
+      <div class="row">
+
+        <div class="col-xs-4" id="body-div1"><img src=""> 
+
+          <h4> WELCOME <%= current_user %>!</h4>
+          <h4> Company: <%= current_user.company %>
+
+          <hr/>
+
+        </div>
+      </div> 
+      <% end %> 
+    </div>
+  </div>
+<!-- 
+          <hr/>
+
+          <div>
+            I will travel:</br> 
+            <select ng-options="o.name for o in options" ng-model="selectedOption" ng-change="update()"></select>
+          </div>
+
+          <hr/>
+
+          <div>
+            My home address: 
+            <map style="display:block;width:250px;height:250px" center="[<%= current_user.address.latitude %> , <%= current_user.address.longitude %>]">
+              <marker position="[<%= current_user.address.latitude %> , <%= current_user.address.longitude %>]" title="My home location"></marker>
+
+            </map>
+          </div>       
+
+        </div>
+        <div class="col-xs-4" id="body-div2" ng-show="contractor.available_now">
+          <h4>Mark jobs that you are interested in<br/>
+          to increase your position in employer searches</h4>
+
+          <hr/>  
+        
+          <div ng-repeat="job in jobs | orderBy: 'id' ">
+            <table>
+              <tr>
+             
+                <td ng-show="userHasSearch(job)" ng-click="showjobinterest(job)">
+                  <i class="fa fa-check-circle" style="font-size:300%;color:green"  ></i>
+                </td>
+            
+                <td ng-hide="userHasSearch(job)" ng-click="showjobinterest(job)">
+                  <i class="fa fa-check-circle-o" style="font-size:300%"  ></i>
+                </td>
+            
+              </tr>
+              <tr>
+                <td>role:  </td>
+                <td> {{ job.description }} </td>
+              </tr>
+              <tr>
+                <td>location:  </td> 
+                <td>{{ job.address.city }} </td>
+              <tr/> 
+              <tr>
+                <td>start date:  </td> 
+                <td>{{ job.start_date }} </td>
+              <tr/> 
+              <tr>
+                <td>end date:  </td> 
+                <td>{{ job.end_date }} </td>
+              <tr/>
+              <tr>
+                <td>jobsearchs:  </td> 
+
+                <td>{{ job.jobsearches[0].interested }} </td>
+                <td>{{job.jobsearches}}
+              <tr/>
+            </table>
+          <hr/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+ -->
+

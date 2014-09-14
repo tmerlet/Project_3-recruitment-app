@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-contractor1 = Contractor.create(name: "contractor1", email: "contractor@gmail.com", password: "password", password_confirmation: "password", available_now: false)
-contractor2 = Contractor.create(name: "contractor1", email: "contractor@gmail.com", password: "password", password_confirmation: "password", available_now: false)
+contractor1 = Contractor.create(name: "contractor1", email: "contractor1@gmail.com", password: "password", password_confirmation: "password", available_now: false)
+contractor2 = Contractor.create(name: "contractor1", email: "contractor2@gmail.com", password: "password", password_confirmation: "password", available_now: false)
 
 
 employee1 = Employee.create(name: "Employee", email: "employee1@gmail.com", password: "password", password_confirmation: "password")
