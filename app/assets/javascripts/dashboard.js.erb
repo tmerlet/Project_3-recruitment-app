@@ -76,14 +76,12 @@
     $scope.update = function() {
        
         $http.put('dashboard/update_distance_travel.json', { id: $scope.contractor.id, distance_travel: $scope.selectedOption.name }).success(function (data){
-        alert("it might have updated?  refresh! ")
       })
     }
 
     $scope.showjobinterest = function(job) {
 
       $http.put('dashboard/show_job_interest.json', { contractor_id: $scope.contractor.id, job_id: job.id }).success(function (data){
-        // alert("you've succeeded http inside the showjobinterest")
         $http.get('/jobs.json').success(function(data) {
           $scope.jobs = data
         })
