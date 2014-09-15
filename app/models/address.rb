@@ -2,7 +2,9 @@ class Address < ActiveRecord::Base
   attr_accessible :city, :country, :line1, :line2, :postcode, :addressable_id, :addressable_type
 
   geocoded_by :postcode 
-  after_validation :geocode, if: ->(obj){ obj.postcode.present? and obj.postcode_changed? } 
+  after_validation :geocode
+
+  # , if: ->(obj){ obj.postcode.present? and obj.postcode_changed? } 
 
 
   belongs_to :addressable, :polymorphic => true

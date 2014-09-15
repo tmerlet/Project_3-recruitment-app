@@ -37,7 +37,7 @@
     </div> 
     <div>
       <%= f.label :distance_travel %><br />
-      <%= f.select(:distance_travel, ["Unlimited", "1000 miles", "500 miles", "200 miles", "100 miles", "50 miles", "20 miles"]) %>
+      <%= f.select(:distance_travel, [["Unlimited", 50000], ["1000 miles", 1000], ["500 miles", 500], ["200 miles", 200], ["100 miles", 100], ["50 miles", 50], ["20 miles", 20]]) %>
     </div> 
     <div class="field">
       <%= f.label :abroad %><br />

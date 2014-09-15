@@ -33,7 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Contractor model specific 
       t.date :dob
-      t.string :distance_travel
+      t.integer :distance_travel
       t.boolean :abroad
       t.boolean :available_now
 

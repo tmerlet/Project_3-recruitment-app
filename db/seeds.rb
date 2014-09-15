@@ -7,19 +7,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-contractor1 = Contractor.create(name: "contractor1", email: "contractor1@gmail.com", password: "password", password_confirmation: "password", available_now: false)
-contractor2 = Contractor.create(name: "contractor1", email: "contractor2@gmail.com", password: "password", password_confirmation: "password", available_now: false)
+contractor1 = Contractor.create(name: "Jason from Edinburgh", email: "contractor1@gmail.com", password: "password", password_confirmation: "password", available_now: false, distance_travel: 50000)
+contractor3 = Contractor.create(name: "Bill from Bristol", email: "contractor3@gmail.com", password: "password", password_confirmation: "password", available_now: false, distance_travel: 500)
 
 
 employee1 = Employee.create(name: "Employee", email: "employee1@gmail.com", password: "password", password_confirmation: "password")
 employee2 = Employee.create(name: "Employee", email: "employee2@gmail.com", password: "password", password_confirmation: "password")
 
-company1 = Company.create(name: "Funny business")
+company1 = Company.create(name: "an edinburgh business")
 company2 = Company.create(name: "Dull business")
 
-job1 = Job.create(description: "an amazing job", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2015")
+job1 = Job.create(description: "A job in london", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2015")
 
-job2 = Job.create(description: "boring job")
+job2 = Job.create(description: "an aberdeen job", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2016")
 
 jobsearch1 = Jobsearch.create()
 jobsearch2 = Jobsearch.create()
@@ -27,9 +27,19 @@ jobsearch2 = Jobsearch.create()
 qualification1 = Qualification.create(name: "iata level 1")
 qualification2 = Qualification.create(name: "iata level 2")
 
-address1 = Address.create(line1: "30 murrayfield road", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
-address2 = Address.create(line1: "32 murrayfield road", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
-address3 = Address.create(line1: "34 murrayfield road", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+addresscom1 = Address.create(line1: "an edinburgh company address", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+addresscom2 = Address.create(line1: "a london company address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
+addresscom3 = Address.create(line1: "a bristol company address", city: "edinburgh", postcode: "bs11", country: "uk" )
+addresscom4 = Address.create(line1: "an aberdeen company address", city: "aberdeen", postcode: "ab52", country: "uk" )
+addresscont1 = Address.create(line1: "an edinburgh contractor address", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+addresscont2 = Address.create(line1: "a london contractor address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
+addresscont3 = Address.create(line1: "a bristol contractor address", city: "edinburgh", postcode: "bs11", country: "uk" )
+addresscont4 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+addressjob1 = Address.create(line1: "an edinburgh job address", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+addressjob2 = Address.create(line1: "a london job address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
+addressjob3 = Address.create(line1: "a bristol job address", city: "edinburgh", postcode: "bs11", country: "uk" )
+addressjob4 = Address.create(line1: "an aberdeen job address", city: "aberdeen", postcode: "ab52", country: "uk" )
+
 
 
 puts ""
@@ -37,9 +47,9 @@ puts "COMPANY"
 puts ""
 
 puts "has_one address"
-company1.address = address1
+company1.address = addresscom1
 puts "company1.address: #{company1.address}"
-puts "address1.addressable: #{address1.addressable} "
+puts "addresscom1.addressable: #{addresscom1.addressable} "
 puts ""
 
 puts "has_many jobs"
@@ -59,7 +69,8 @@ puts "JOB"
 puts ""
 
 puts "has_one address"
-job1.address = address2
+job1.address = addressjob2
+job2.address = addressjob4
 puts "job1.address: #{job1.address}"
 puts ""
 # NOTE THAT THE SAME ADDRESS CANNOT BE USED FOR DIFFERENT MODELS
@@ -76,7 +87,7 @@ puts ""
 
 puts "has_and_belongs_to_many :qualifications"
 job1.qualifications << qualification1
-qualification2.jobs << job1
+qualification2.jobs << job2
 puts "job1.qualifications: #{job1.qualifications}"
 puts ""
 
@@ -105,12 +116,9 @@ puts ""
 puts "CONTRACTOR"
 puts ""
 
-puts "belongs_to company"
-puts "employee1.company: #{employee1.company}"
-puts ""
-
 puts "has_one :address, as: :addressable"
-contractor1.address = address3
+contractor1.address = addresscont1
+contractor3.address = addresscont3
 puts "contractor1.address: #{contractor1.address}"
 puts ""
 
@@ -121,7 +129,7 @@ puts""
 
 puts "has_and_belongs_to_many :qualifications"
 contractor1.qualifications << qualification1
-qualification2.contractors << contractor1
+qualification2.contractors << contractor3
 puts "contractor1.qualifications: #{contractor1.qualifications}"
 puts ""
 
@@ -142,9 +150,9 @@ puts "ADDRESS"
 puts ""
 
 puts "belongs_to :addressable, :polymorphic => true"
-puts "address1.addressable: #{address1.addressable}"
-puts "address2.addressable: #{address2.addressable}"
-puts "address3.addressable: #{address3.addressable}"
+puts "addresscom1.addressable: #{addresscom1.addressable}"
+puts "addressjob1.addressable: #{addressjob1.addressable}"
+puts "addresscont1.addressable: #{addresscont1.addressable}"
 puts ""
 
 puts ""

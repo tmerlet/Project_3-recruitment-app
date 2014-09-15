@@ -88,12 +88,10 @@
                   <td>end date:  </td> 
                   <td>{{ job.end_date }} </td>
                 <tr/>
+                
                 <tr>
-                  <td>jobsearchs:  </td> 
-
-                  <td>{{ job.jobsearches[0].interested }} </td>
-                  <td>{{job.jobsearches}}
                 <tr/>
+
               </table>
             <hr/>
           </div>
@@ -120,7 +118,7 @@
             <hr/>
 
             <div>
-              {{ companyjobs }}
+ 
             </div>
 
    
@@ -156,8 +154,19 @@
 
 
                 </tr>
+                  <td ng-show="userCanTravel(potentialcontractor)">
+                    can travel to this job
+                  </td>
+                  <td ng-hide="userCanTravel(potentialcontractor)">
+                    is too far away
+                  </td>
                 <tr>
-                  
+                  <td ng-show="userHasQualifications(potentialcontractor)">
+                    has the right qualification
+                  </td>
+                  <td ng-hide="userHasQualifications(potentialcontractor)">
+                    doesn't have the right qualification
+                  </td>                  
                 <tr/> 
   
                 <tr>

@@ -39,8 +39,8 @@ class DashboardController < ApplicationController
     companyjobs = Job.where(company_id: companyid)
     
     respond_to do |format|
-      format.html { render json: companyjobs.to_json(include: :jobsearches) }
-      format.json { render json: companyjobs.to_json(include: :jobsearches) }
+      format.html { render json: companyjobs.to_json(include: [:address, :jobsearches, :qualifications]) }
+      format.json { render json: companyjobs.to_json(include: [:address, :jobsearches, :qualifications]) }
     end
   end
 
@@ -95,6 +95,6 @@ class DashboardController < ApplicationController
     end
   end
 
-  
+
   
 end
