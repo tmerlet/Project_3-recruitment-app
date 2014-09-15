@@ -63,7 +63,12 @@
       </div>
     <% end %>
   </div>
-  
+  <div class="field"> 
+    <% Qualification.all.each do |qualification| %>  
+      <%= check_box_tag "qualifications[]", qualification.id, @job.qualifications.include?(qualification) %>
+      <%= label qualification.id, qualification.name%>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

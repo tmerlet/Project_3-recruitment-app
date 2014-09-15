@@ -24,8 +24,10 @@ class JobsController < ApplicationController
   # GET /jobs/new
   # GET /jobs/new.json
   def new
+    
     @job = Job.new
     @job.build_address
+
     
 
     respond_to do |format|
@@ -43,12 +45,20 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(params[:job])
-    binding.pry
+    @job.company_id = current_user.company_id
+    
     # @job.address = Address.new(params[:address])
     
 
     respond_to do |format|
       if @job.save
+        if params["qualifications"]
+          params["qualifications"].each do |id| 
+            qualification = Qualification.find(id.to_i)
+            @job.qualifications << qualification
+          end
+        end
+        @job.save
         # @job.address.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
         format.json { render json: @job, status: :created, location: @job }
@@ -65,7 +75,16 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     respond_to do |format|
-      if @job.update_attributes(params[:job])
+      if @job.update_attributes(params[:job]) || @job.update_attributes(params[:qualifications])
+        @job.qualifications = []
+        #reassigning qualification
+        if params["qualifications"]
+          params["qualifications"].each do |id| 
+            qualification = Qualification.find(id.to_i)
+            @job.qualifications << qualification
+          end
+        end
+        @job.save
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { head :no_content }
       else
