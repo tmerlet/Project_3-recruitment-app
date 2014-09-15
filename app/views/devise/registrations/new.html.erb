@@ -71,6 +71,12 @@
         <%= ff.text_field :country %>
       </div>
     <% end %>
+    <div class="field"> 
+      <% Qualification.all.each do |qualification| %>  
+        <%= check_box_tag "qualifications[]", qualification.id, resource.qualifications.include?(qualification) %>
+        <%= label qualification.id, qualification.name%>
+      <% end %>
+    </div>
   <% end %>
   <div><%= f.submit "Sign up" %></div>
 <% end %>

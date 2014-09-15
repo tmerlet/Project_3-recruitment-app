@@ -2,9 +2,9 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Subdivision</th>
-    <th>Industry</th>
+    <th>Name  </th>
+    <th>Subdivision  </th>
+    <th>Industry  </th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +12,9 @@
 
 <% @qualifications.each do |qualification| %>
   <tr>
-    <td><%= qualification.name %></td>
-    <td><%= qualification.subdivision %></td>
-    <td><%= qualification.industry %></td>
+    <td><%= qualification.name %>  </td>
+    <td><%= qualification.subdivision %>  </td>
+    <td><%= qualification.industry %>  </td>
     <td><%= link_to 'Show', qualification %></td>
     <td><%= link_to 'Edit', edit_qualification_path(qualification) %></td>
     <td><%= link_to 'Destroy', qualification, method: :delete, data: { confirm: 'Are you sure?' } %></td>

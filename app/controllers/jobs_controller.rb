@@ -26,7 +26,7 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     @job.build_address
-    # @job.address = Address.new
+    
 
     respond_to do |format|
       format.html # new.html.erb
