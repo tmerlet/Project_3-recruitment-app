@@ -147,5 +147,26 @@ class DashboardController < ApplicationController
       format.json { render json: jobsearch }
     end
   end
+
+  def set_current_location
+
+    currentuser = Contractor.find(params[:contractor_id])
+    currentlatitude = request.location.latitude
+    currentlongitude = request.location.longitude 
+
+      binding.pry
+
+    currentuser.address.latitude = currentlatitude
+    currentuser.address.longitude = currentlongitude
+       
+      binding.pry
+       
+    currentuser.save
+
+    respond_to do |format|
+      format.html { render json: currentuser }
+      format.json { render json: currentuser }
+    end
+  end
   
 end

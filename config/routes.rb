@@ -42,6 +42,9 @@ RecruitmentProject3App::Application.routes.draw do
   put 'dashboard/offer_user', to: "dashboard#offer_user"
   put 'dashboard/accept_user', to: "dashboard#accept_user"  
   put 'dashboard/reject_user', to: "dashboard#reject_user"      
+  put 'dashboard/set_current_location', to: "dashboard#set_current_location"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

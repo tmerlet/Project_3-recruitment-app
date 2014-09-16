@@ -240,6 +240,17 @@
       
     }
 
+    $scope.setCurrentLocation = function() {
+      contractor = $scope.contractor
+      contractorlat = $scope.contractor.address.latitude
+      contractorlon = $scope.contractor.address.longitude
+      
+      $http.put('dashboard/set_current_location.json', { contractor_id: contractor.id, latitude: contractorlat, longitude: contractorlon }).success(function (currentuser){
+         
+         $scope.contractor.address.latitude = currentuser.address.latitude
+         $scope.contractor.address.longitude = currentuser.address.latitude
+       })
+    }
 
 
 

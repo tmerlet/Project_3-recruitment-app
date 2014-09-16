@@ -7,157 +7,132 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-contractor1 = Contractor.create(name: "Jason", email: "contractor1@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 50000, phone: "0131-346-0089")
-contractor3 = Contractor.create(name: "Bill", email: "contractor3@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 500, phone: "0108-643-0900")
+qualification1 = Qualification.create(name: "level 1")
+qualification2 = Qualification.create(name: "level 2")
+qualification3 = Qualification.create(name: "level 3")
 
-
-employee1 = Employee.create(name: "Employee", email: "employee1@gmail.com", password: "password", password_confirmation: "password")
-employee2 = Employee.create(name: "Employee", email: "employee2@gmail.com", password: "password", password_confirmation: "password")
-
-company1 = Company.create(name: "an edinburgh business")
-company2 = Company.create(name: "Dull business")
-
-job1 = Job.create(description: "A job in london", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2015", salary_range: "£250 p/d")
-
-job2 = Job.create(description: "an aberdeen job", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2016", salary_range: "£150 p/d")
-
-jobsearch1 = Jobsearch.create()
-jobsearch2 = Jobsearch.create()
-
-qualification1 = Qualification.create(name: "iata level 1")
-qualification2 = Qualification.create(name: "iata level 2")
-
-addresscom1 = Address.create(line1: "an edinburgh company address", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
-addresscom2 = Address.create(line1: "a london company address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
-addresscom3 = Address.create(line1: "a bristol company address", city: "edinburgh", postcode: "bs11", country: "uk" )
-addresscom4 = Address.create(line1: "an aberdeen company address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor1 = Contractor.create(name: "Toby", email: "toby@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 50000, phone: "0131-346-0089")
 addresscont1 = Address.create(line1: "an edinburgh contractor address", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
-addresscont2 = Address.create(line1: "a london contractor address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
-addresscont3 = Address.create(line1: "a bristol contractor address", city: "edinburgh", postcode: "bs11", country: "uk" )
-addresscont4 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
-addressjob1 = Address.create(line1: "an edinburgh job address", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
-addressjob2 = Address.create(line1: "a london job address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
-addressjob3 = Address.create(line1: "a bristol job address", city: "edinburgh", postcode: "bs11", country: "uk" )
-addressjob4 = Address.create(line1: "an aberdeen job address", city: "aberdeen", postcode: "ab52", country: "uk" )
-
-
-
-puts ""
-puts "COMPANY"
-puts ""
-
-puts "has_one address"
-company1.address = addresscom1
-puts "company1.address: #{company1.address}"
-puts "addresscom1.addressable: #{addresscom1.addressable} "
-puts ""
-
-puts "has_many jobs"
-company1.jobs << job1
-company1.jobs << job2
-puts "company1.jobs: #{company1.jobs}"
-puts ""
-
-puts "has_many employees"
-company1.employees << employee1
-company1.employees << employee2
-puts "company1.employees: #{company1.employees}"
-puts ""
-
-puts ""
-puts "JOB"
-puts ""
-
-puts "has_one address"
-job1.address = addressjob2
-job2.address = addressjob4
-puts "job1.address: #{job1.address}"
-puts ""
-# NOTE THAT THE SAME ADDRESS CANNOT BE USED FOR DIFFERENT MODELS
-
-puts "has_many jobsearches"
-job1.jobsearches << jobsearch1
-job1.jobsearches << jobsearch2
-puts "job1.jobsearches: #{job1.jobsearches}"
-puts ""
-
-puts "belongs_to company"
-puts "job1.company: #{job1.company}"
-puts ""
-
-puts "has_and_belongs_to_many :qualifications"
-job1.qualifications << qualification1
-qualification2.jobs << job2
-puts "job1.qualifications: #{job1.qualifications}"
-puts ""
-
-puts ""
-puts "JOBSEARCH"
-puts ""
-
-puts "belongs_to job"
-puts "jobsearch1.job: #{jobsearch1.job}"
-puts ""
-
-puts "belongs_to contractor"
-contractor1.jobsearches << jobsearch1
-puts "jobsearch1.contractor: #{jobsearch1.contractor}"
-puts ""
-
-puts ""
-puts "EMPLOYEE"
-puts ""
-
-puts "belongs_to company"
-puts "employee1.company: #{employee1.company}"
-puts ""
-
-puts ""
-puts "CONTRACTOR"
-puts ""
-
-puts "has_one :address, as: :addressable"
 contractor1.address = addresscont1
-contractor3.address = addresscont3
-puts "contractor1.address: #{contractor1.address}"
-puts ""
-
-puts "has_many :jobsearches"
-puts "contractor1.jobsearches: #{contractor1.jobsearches}"
-puts""
-
-
-puts "has_and_belongs_to_many :qualifications"
 contractor1.qualifications << qualification1
-qualification2.contractors << contractor3
-puts "contractor1.qualifications: #{contractor1.qualifications}"
-puts ""
 
-puts ""
-puts "QUALIFICATION"
-puts ""
+contractor2 = Contractor.create(name: "Gareth", email: "gareth@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 500, phone: "0108-643-0900")
+addresscont2 = Address.create(line1: "a london contractor address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
+contractor2.address = addresscont2
+contractor2.qualifications << qualification2
 
-puts "has_and_belongs_to_many :contractors"
-puts "qualification1.contractors: #{qualification1.contractors}"
-puts ""
+contractor3 = Contractor.create(name: "Johana", email: "Johana@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 200, phone: "0131-346-0089")
+addresscont3 = Address.create(line1: "a bristol contractor address", city: "edinburgh", postcode: "bs11", country: "uk" )
+contractor3.address = addresscont3
+contractor3.qualifications << qualification3
 
-puts "has_and_belongs_to_many :jobs"
-puts "qualification1.jobs: #{qualification1.jobs}"
-puts ""
+contractor4 = Contractor.create(name: "David", email: "david@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 500, phone: "0108-643-0900")
+addresscont4 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor4.address = addresscont4
+contractor4.qualifications << qualification1
 
-puts ""
-puts "ADDRESS"
-puts ""
+contractor5 = Contractor.create(name: "Graham", email: "graham@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 50000, phone: "0131-346-0089")
+addresscont5 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor5.address = addresscont5
+contractor5.qualifications << qualification2
 
-puts "belongs_to :addressable, :polymorphic => true"
-puts "addresscom1.addressable: #{addresscom1.addressable}"
-puts "addressjob1.addressable: #{addressjob1.addressable}"
-puts "addresscont1.addressable: #{addresscont1.addressable}"
-puts ""
+contractor6 = Contractor.create(name: "Sam", email: "sam@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 500, phone: "0108-643-0900")
+addresscont6 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor6.address = addresscont6
+contractor6.qualifications << qualification3
 
-puts ""
-puts "RETURN THE JOBSEARCHES WHERE CONTRACTOR_ID == 1"
-puts "Jobsearch.where(contractor_id: '1'): #{Jobsearch.where(contractor_id: '1')}"
+contractor7 = Contractor.create(name: "Tobias", email: "tobias@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 5000, phone: "0131-346-0089")
+addresscont7 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor7.address = addresscont7
+contractor7.qualifications << qualification1
+
+contractor8 = Contractor.create(name: "Eduardo", email: "eduardo@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 200, phone: "0108-643-0900")
+addresscont8 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor8.address = addresscont8
+contractor8.qualifications << qualification2
+
+contractor9 = Contractor.create(name: "Graham", email: "graham@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 500, phone: "0131-346-0089")
+addresscont9 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor9.address = addresscont9
+contractor9.qualifications << qualification3
+
+contractor10 = Contractor.create(name: "Sam", email: "sam@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 50000, phone: "0108-643-0900")
+addresscont10 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor10.address = addresscont10
+contractor10.qualifications << qualification1
+
+contractor11 = Contractor.create(name: "Tobias", email: "tobias@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 500, phone: "0131-346-0089")
+addresscont11 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor11.address = addresscont11
+contractor11.qualifications << qualification2
+
+contractor12 = Contractor.create(name: "Eduardo", email: "eduardo@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 200, phone: "0108-643-0900")
+addresscont12 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+contractor12.address = addresscont12
+contractor12.qualifications << qualification3
+
+employee1 = Employee.create(name: "Mike", email: "mike@gmail.com", password: "password", password_confirmation: "password")
+employee2 = Employee.create(name: "Mathilda", email: "mathilda@gmail.com", password: "password", password_confirmation: "password")
+
+company1 = Company.create(name: "Edinburgh IT recruitment")
+addresscom1 = Address.create(line1: "an edinburgh company address", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+company1.address = addresscom1
+company1.employees << employee1
+
+company2 = Company.create(name: "Bristol IT recruitment")
+addresscom2 = Address.create(line1: "a london company address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
+company2.address = addresscom2
+company2.employees << employee2
+
+job1 = Job.create(description: "Senior PHP developer", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2015", salary_range: "£450 p/d")
+addressjob1 = Address.create(line1: "an edinburgh job address", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+job1.address = addressjob1
+company1.jobs << job1
+job1.qualifications << qualification3
+
+
+job2 = Job.create(description: "Junior Rails developer", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2016", salary_range: "£100 p/d")
+addressjob2 = Address.create(line1: "a london job address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
+job2.address = addressjob2
+company1.jobs << job2
+job2.qualifications << qualification2
+
+job3 = Job.create(description: "Database Administrator", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2015", salary_range: "£250 p/d")
+addressjob3 = Address.create(line1: "a bristol job address", city: "edinburgh", postcode: "bs11", country: "uk" )
+job3.address = addressjob3
+company1.jobs << job3
+job3.qualifications << qualification1
+
+job4 = Job.create(description: "Web teaching assistant", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2016", salary_range: "£60 p/d")
+addressjob4 = Address.create(line1: "an aberdeen job address", city: "aberdeen", postcode: "ab52", country: "uk" )
+job4.address = addressjob4
+company1.jobs << job4
+job4.qualifications << qualification3
+
+job5 = Job.create(description: "Web teaching instructor", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2015", salary_range: "£400 p/d")
+addressjob5 = Address.create(line1: "an aberdeen job address", city: "aberdeen", postcode: "ab52", country: "uk" )
+job5.address = addressjob5
+company1.jobs << job5
+job5.qualifications << qualification2
+
+job6 = Job.create(description: "Web front end designer - Junior", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2016", salary_range: "£120 p/d")
+addressjob6 = Address.create(line1: "an aberdeen job address", city: "aberdeen", postcode: "ab52", country: "uk" )
+job6.address = addressjob6
+company1.jobs << job6
+job6.qualifications << qualification1
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
