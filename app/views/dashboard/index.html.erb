@@ -118,7 +118,7 @@
             <hr/>
 
             <div>
-              <a class="btn btn-default" href="/jobs/new?company[{{ employee.company.id }}]”">New job</a>
+              <a class="btn btn-default" href="/jobs/new">New job</a>
             </div>
 
    
@@ -140,32 +140,41 @@
 
               <table>
                 <tr>
-                  <td>Contractor name:  {{ potentialcontractor.name }}</td>
+                  <td>{{ potentialcontractor.name }} from {{ potentialcontractor.address.city }} </td>
                 </tr>
                 
                 <tr>
+                  <td ng-show="userAvailable(potentialcontractor)">
+                    available <i class="fa fa-check-circle" style="color:green"></i>
+                  </td>
+                  <td ng-hide="userAvailable(potentialcontractor)">
+                    available <i class="fa fa-times-circle" style="color:red"></i>
+                  </td>
+                </tr>
+
+                <tr>
                   <td ng-show="userShowedinterest(potentialcontractor)">
-                    is interested in this job specifically
+                    interest <i class="fa fa-check-circle" style="color:green"></i>
                   </td>
                   <td ng-hide="userShowedinterest(potentialcontractor)">
-                    interest unknown
+                    interest <i class="fa fa-times-circle" style="color:red"></i>
                   </td>
                 </tr>
 
 
                 </tr>
                   <td ng-show="userCanTravel(potentialcontractor)">
-                    can travel to this job
+                    distance <i class="fa fa-check-circle" style="color:green"></i>
                   </td>
                   <td ng-hide="userCanTravel(potentialcontractor)">
-                    is too far away
+                    distance <i class="fa fa-times-circle" style="color:red"></i>
                   </td>
                 <tr>
                   <td ng-show="userHasQualifications(potentialcontractor)">
-                    has the right qualification
+                    qualification <i class="fa fa-check-circle" style="color:green"></i>
                   </td>
                   <td ng-hide="userHasQualifications(potentialcontractor)">
-                    doesn't have the right qualification
+                    qualification <i class="fa fa-times-circle" style="color:red"></i>
                   </td>                  
                 <tr/> 
   

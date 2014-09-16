@@ -63,6 +63,8 @@
       </div>
     <% end %>
   </div>
+
+  <h2>Required Qualifications</h2>
   <div class="field"> 
     <% Qualification.all.each do |qualification| %>  
       <%= check_box_tag "qualifications[]", qualification.id, @job.qualifications.include?(qualification) %>

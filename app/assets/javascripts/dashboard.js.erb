@@ -141,7 +141,7 @@
 
 
       for(var i =0 ; i < contractorqualifications.length; i++) {
-        for(var ii =0 ; i < jobqualifications.length; i++) {
+        for(var ii =0 ; ii < jobqualifications.length; ii++) {
 
           if (contractorqualifications[i].name == jobqualifications[ii].name) {
             hasQualifications = true
@@ -149,6 +149,13 @@
         }
       }
       return hasQualifications
+    }
+
+    $scope.userAvailable = function(potentialcontractor) {
+
+      p = potentialcontractor.available_now  
+      return p
+
     }
 
 
