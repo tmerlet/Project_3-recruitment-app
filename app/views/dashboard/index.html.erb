@@ -134,63 +134,47 @@
 
 
 
-          <div class="col-xs-4" id="body-div1"><img src="">
+          <div class="col-xs-6" id="body-div1"><img src="">
 
-            <div ng-repeat="potentialcontractor in potentialcontractors">
+              <table ng-show="selectedCompanyJob" class="table table-striped">
 
-              <table>
                 <tr>
-                  <td>{{ potentialcontractor.name }} from {{ potentialcontractor.address.city }} </td>
+                  <td class="center"></td>
+                  <td class="center">Available</td>
+                  <td class="center">Distance</td>
+                  <td class="center">Qualification</td>
+                  <td class="center">Interest</td>
+                </tr> 
+
+                <tr ng-repeat="potentialcontractor in potentialcontractors">
+                  <td>{{ potentialcontractor.name }} <br/> {{ potentialcontractor.address.city }} </td>
+                  <td class="center" ng-show="potentialcontractor.available_now">
+                    <i class="fa fa-check-circle" style="font-size:165%;color:green"></i>
+                  </td>
+                  <td class="center" ng-hide="potentialcontractor.available_now">
+                    <i class="fa fa-times-circle" style="font-size:165%;color:red"></i>
+                  </td>
+                  <td class="center" ng-show="userCanTravel(potentialcontractor)">
+                    <i class="fa fa-check-circle" style="font-size:165%;color:green"></i>
+                  </td>
+                  <td class="center" ng-hide="userCanTravel(potentialcontractor)">
+                    <i class="fa fa-times-circle" style="font-size:165%;color:red"></i>
+                  </td>
+                  <td class="center" ng-show="userHasQualifications(potentialcontractor)">
+                    <i class="fa fa-check-circle" style="font-size:165%;color:green"></i>
+                  </td>
+                  <td class="center" ng-hide="userHasQualifications(potentialcontractor)">
+                    <i class="fa fa-times-circle" style="font-size:165%;color:red"></i>
+                  </td>      
+                  <td class="center" ng-show="userShowedinterest(potentialcontractor)">
+                    <i class="fa fa-check-circle" style="font-size:165%;color:green"></i>
+                  </td>
+                  <td class="center" ng-hide="userShowedinterest(potentialcontractor)">
+                    <i class="fa fa-times-circle" style="font-size:165%;color:orange"></i>
+                  </td>         
                 </tr>
-                
-                <tr>
-                  <td ng-show="userAvailable(potentialcontractor)">
-                    available <i class="fa fa-check-circle" style="color:green"></i>
-                  </td>
-                  <td ng-hide="userAvailable(potentialcontractor)">
-                    available <i class="fa fa-times-circle" style="color:red"></i>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td ng-show="userShowedinterest(potentialcontractor)">
-                    interest <i class="fa fa-check-circle" style="color:green"></i>
-                  </td>
-                  <td ng-hide="userShowedinterest(potentialcontractor)">
-                    interest <i class="fa fa-times-circle" style="color:red"></i>
-                  </td>
-                </tr>
-
-
-                </tr>
-                  <td ng-show="userCanTravel(potentialcontractor)">
-                    distance <i class="fa fa-check-circle" style="color:green"></i>
-                  </td>
-                  <td ng-hide="userCanTravel(potentialcontractor)">
-                    distance <i class="fa fa-times-circle" style="color:red"></i>
-                  </td>
-                <tr>
-                  <td ng-show="userHasQualifications(potentialcontractor)">
-                    qualification <i class="fa fa-check-circle" style="color:green"></i>
-                  </td>
-                  <td ng-hide="userHasQualifications(potentialcontractor)">
-                    qualification <i class="fa fa-times-circle" style="color:red"></i>
-                  </td>                  
-                <tr/> 
-  
-                <tr>
-                  
-                <tr/> 
-                <tr>
-                  
-                <tr/>
-                <tr>
-                  
-                <tr/>
               </table>
-            <hr/>
-            </div>
-          <div>
+            <div>
         </div>
       <% end %>
     <% end %>
