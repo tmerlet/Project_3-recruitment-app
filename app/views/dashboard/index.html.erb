@@ -14,6 +14,9 @@
         <div class="header-divs col-md-4 col-sm-12 col-xs-12" id="header-div3">
           <% if user_signed_in? %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path %>
+            
           <% end %>
         </div>
       </div>
@@ -112,13 +115,19 @@
 
             <div>
               select a position:</br> 
-              <select ng-options="o.description for o in companyjobs" ng-model="selectedCompanyJob" ng-change="getPotentialContractors()"></select>          
+              <select ng-options="o.description for o in companyjobs" ng-model="selectedCompanyJob" ng-change="getPotentialContractors()"></select>
+              <a class="btn btn-default" href="/jobs/new">New job</a>          
             </div>
 
             <hr/>
 
-            <div>
-              <a class="btn btn-default" href="/jobs/new">New job</a>
+            <div ng-show="selectedCompanyJob">
+              <h3>Details</h3>
+              <p>Description: {{ selectedCompanyJob.description }} </p>
+              <p>Location: {{ selectedCompanyJob.address.city }} </p>
+              <p>Start Date: {{ selectedCompanyJob.start_date }} </p>
+              <p>End Date: {{ selectedCompanyJob.end_date }} </p>
+              <p><a class="btn btn-default" href="/jobs/{{selectedCompanyJob.id}}/edit">Edit job</a>
             </div>
 
    
