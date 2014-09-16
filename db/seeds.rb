@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-contractor1 = Contractor.create(name: "Jason from Edinburgh", email: "contractor1@gmail.com", password: "password", password_confirmation: "password", available_now: false, distance_travel: 50000)
-contractor3 = Contractor.create(name: "Bill from Bristol", email: "contractor3@gmail.com", password: "password", password_confirmation: "password", available_now: false, distance_travel: 500)
+contractor1 = Contractor.create(name: "Jason", email: "contractor1@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 50000)
+contractor3 = Contractor.create(name: "Bill", email: "contractor3@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 500)
 
 
 employee1 = Employee.create(name: "Employee", email: "employee1@gmail.com", password: "password", password_confirmation: "password")
@@ -17,9 +17,9 @@ employee2 = Employee.create(name: "Employee", email: "employee2@gmail.com", pass
 company1 = Company.create(name: "an edinburgh business")
 company2 = Company.create(name: "Dull business")
 
-job1 = Job.create(description: "A job in london", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2015")
+job1 = Job.create(description: "A job in london", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2015", salary_range: "£250 p/d")
 
-job2 = Job.create(description: "an aberdeen job", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2016")
+job2 = Job.create(description: "an aberdeen job", abroad: false, filled: false, cancelled: false, start_date: "19/12/2014", end_date: "21/01/2016", salary_range: "£150 p/d")
 
 jobsearch1 = Jobsearch.create()
 jobsearch2 = Jobsearch.create()

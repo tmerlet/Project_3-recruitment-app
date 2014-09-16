@@ -40,15 +40,16 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
   end
 
   create_table "jobs", :force => true do |t|
-    t.text     "description"
+    t.string   "description"
     t.boolean  "abroad"
     t.boolean  "filled"
     t.boolean  "cancelled"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "company_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "salary_range"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "jobs_qualifications", :id => false, :force => true do |t|
