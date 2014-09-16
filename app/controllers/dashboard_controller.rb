@@ -95,6 +95,57 @@ class DashboardController < ApplicationController
     end
   end
 
+  def contact_user
 
+    jobsearch = Jobsearch.where(contractor_id: params[:contractor_id], job_id: params[:job_id]).first_or_create
+
+
+    jobsearch.contacted ? (jobsearch.contacted = false) : (jobsearch.contacted = true)
+    jobsearch.save
+
+    respond_to do |format|
+      format.html { render json: jobsearch }
+      format.json { render json: jobsearch }
+    end
+  end
+
+  def offer_user
+
+    jobsearch = Jobsearch.where(contractor_id: params[:contractor_id], job_id: params[:job_id]).first_or_create
+    
+    jobsearch.offered ? (jobsearch.offered = false) : (jobsearch.offered = true)
+    jobsearch.save
+
+    respond_to do |format|
+      format.html { render json: jobsearch }
+      format.json { render json: jobsearch }
+    end
+  end
+
+  def accept_user
+
+    jobsearch = Jobsearch.where(contractor_id: params[:contractor_id], job_id: params[:job_id]).first_or_create
+    
+    jobsearch.accepted ? (jobsearch.accepted = false) : (jobsearch.accepted = true)
+    jobsearch.save
+
+    respond_to do |format|
+      format.html { render json: jobsearch }
+      format.json { render json: jobsearch }
+    end
+  end
+
+  def reject_user
+
+    jobsearch = Jobsearch.where(contractor_id: params[:contractor_id], job_id: params[:job_id]).first_or_create
+    
+    jobsearch.rejected ? (jobsearch.rejected = false) : (jobsearch.rejected = true)
+    jobsearch.save
+
+    respond_to do |format|
+      format.html { render json: jobsearch }
+      format.json { render json: jobsearch }
+    end
+  end
   
 end

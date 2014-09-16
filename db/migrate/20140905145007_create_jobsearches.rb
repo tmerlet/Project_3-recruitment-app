@@ -9,6 +9,7 @@ class CreateJobsearches < ActiveRecord::Migration
       t.datetime :dateoffered
       t.boolean :rejected
       t.datetime :daterejected
+      t.boolean :accepted
       t.boolean :dateaccepted
       t.boolean :declined
       t.datetime :datedeclined

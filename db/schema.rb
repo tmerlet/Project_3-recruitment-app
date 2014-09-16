@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
     t.datetime "dateoffered"
     t.boolean  "rejected"
     t.datetime "daterejected"
+    t.boolean  "accepted"
     t.boolean  "dateaccepted"
     t.boolean  "declined"
     t.datetime "datedeclined"

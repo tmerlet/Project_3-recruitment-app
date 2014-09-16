@@ -158,6 +158,91 @@
 
     }
 
+    $scope.userContacted = function(potentialcontractor) {
+      var contacted = false
+      for(var i =0 ; i < potentialcontractor.jobsearches.length; i++) { 
+        if (potentialcontractor.jobsearches[i].job_id == $scope.selectedCompanyJob.id) {
+          if (potentialcontractor.jobsearches[i].contacted == true){
+            return true
+          }
+        }
+      }
+      return false
+    }
+
+    $scope.contactUser = function(potentialcontractor) {
+
+      $http.put('dashboard/contact_user.json', { contractor_id: potentialcontractor.id, job_id: $scope.selectedCompanyJob.id }).success(function (data){
+          $scope.getPotentialContractors()
+      })
+      
+    }
+
+    $scope.userOffered = function(potentialcontractor) {
+      var offered = false
+      for(var i =0 ; i < potentialcontractor.jobsearches.length; i++) { 
+        if (potentialcontractor.jobsearches[i].job_id == $scope.selectedCompanyJob.id) {
+          if (potentialcontractor.jobsearches[i].offered == true){
+            return true
+          }
+        }
+      }
+      return false
+    }
+
+    $scope.offerUser = function(potentialcontractor) {
+
+      $http.put('dashboard/offer_user.json', { contractor_id: potentialcontractor.id, job_id: $scope.selectedCompanyJob.id }).success(function (data){
+          $scope.getPotentialContractors()
+      })
+      
+    }
+
+    $scope.userAccepted = function(potentialcontractor) {
+      for(var i =0 ; i < potentialcontractor.jobsearches.length; i++) { 
+        if (potentialcontractor.jobsearches[i].job_id == $scope.selectedCompanyJob.id) {
+          if (potentialcontractor.jobsearches[i].accepted == true){
+            return true
+          }
+        }
+      }
+      return false
+    }
+
+    $scope.acceptUser = function(potentialcontractor) {
+
+      $http.put('dashboard/accept_user.json', { contractor_id: potentialcontractor.id, job_id: $scope.selectedCompanyJob.id }).success(function (data){
+          $scope.getPotentialContractors()
+      }) 
+    }
+
+    $scope.userRejected = function(potentialcontractor) {
+      for(var i =0 ; i < potentialcontractor.jobsearches.length; i++) { 
+        if (potentialcontractor.jobsearches[i].job_id == $scope.selectedCompanyJob.id) {
+          if (potentialcontractor.jobsearches[i].rejected == true){
+            return true
+          }
+        }
+      }
+      return false
+    }
+
+    $scope.rejectUser = function(potentialcontractor) {
+
+      $http.put('dashboard/reject_user.json', { contractor_id: potentialcontractor.id, job_id: $scope.selectedCompanyJob.id }).success(function (data){
+          $scope.getPotentialContractors()
+      }) 
+    }
+
+    $scope.phoneUser = function(potentialcontractor) {
+
+      alert("Name: " + potentialcontractor.name + "\nPhone number: " + potentialcontractor.phone)
+      
+    }
+
+
+
+
 
   }])
 
