@@ -13,6 +13,7 @@ gem 'ransack'
 gem 'rmagick', :require => 'RMagick'
 gem 'geocoder'
 gem 'angularjs-rails'
+gem 'newrelic_rpm'
 
 group :development do
 gem 'letter_opener'
