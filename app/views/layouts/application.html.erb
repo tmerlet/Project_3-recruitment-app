@@ -13,30 +13,7 @@
   <!-- angularmaps -->
 </head>
 <body>
-
-    <div class="user-nav">
-      <% if user_signed_in? %>
-        Logged in as
-        <b>
-          <%= current_user.email %>
-        </b>
-        <%= link_to 'Edit Profile employee', edit_employee_registration_path %>
-        |
-        <%= link_to 'Edit Profile contractor', edit_contractor_registration_path %>
-        |
-        <%= link_to 'Logout',  destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign up contractor', new_contractor_registration_path %>
-        |
-        <%= link_to 'Sign up employee', new_employee_registration_path %>
-        |
-        <%= link_to 'Login', new_user_session_path %>
-      <% end %>
-    </div>
     
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
     
   <%= yield %>
 

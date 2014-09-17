@@ -9,17 +9,28 @@
           DASHBOARD
         </div>
         <div class="header-divs col-md-4 col-sm-12 col-xs-12" id="header-div2">
-          My details
+          <% if user_signed_in? %>
+            <% if current_user.type == "Contractor" %>
+              <%= link_to 'Edit Profile contractor', edit_contractor_registration_path %>
+            <% else %>
+              <%= link_to 'Edit Profile employee', edit_employee_registration_path %>  
+            <% end %>
+            <% else %>
+              <%= link_to 'Sign up contractor', new_contractor_registration_path %>
+          <% end %>
         </div>
         <div class="header-divs col-md-4 col-sm-12 col-xs-12" id="header-div3">
           <% if user_signed_in? %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Login", new_user_session_path %>
-            
           <% end %>
         </div>
       </div>
+
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
 
       <% if current_user %>
         <% if current_user.type == "Contractor"  %>

@@ -30,7 +30,7 @@ html, body {
   border: solid #F7F7F7 5px;
 }
 
-.header-divs a:visited {
+.header-divs a {
   color: white;
 }
 
@@ -49,10 +49,11 @@ html, body {
 
 a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 a:hover {
+  text-decoration: none;
   background: none;
 }
 
@@ -65,8 +66,8 @@ p {
   text-align: center;
 }
 
-.jobform {
-  margin-left: 40px
+.railsform {
+  text-align: center
 }
 
 .angular-google-map-container { height: 300px; }
