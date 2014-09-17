@@ -17,8 +17,6 @@ html, body {
   margin: 0 auto;
 }
 
-
-
 .header-divs {
   padding: 40px 35px 35px;
   vertical-align: top;
@@ -70,5 +68,7 @@ p {
 .jobform {
   margin-left: 40px
 }
+
+.angular-google-map-container { height: 400px; }
 
 
