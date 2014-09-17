@@ -18,7 +18,7 @@ html, body {
 }
 
 .header-divs {
-  padding: 40px 35px 35px;
+/*  padding: 40px 35px 35px;*/
   vertical-align: top;
   text-align: center; 
   background: #848484;
@@ -31,17 +31,16 @@ html, body {
 }
 
 .header-divs a {
+  display: block;
   color: white;
+  padding: 25px;
+  width: 100%;
 }
 
-#header-div1, #header-div3 {
+#header-div1, #header-div2, #header-div3 {
   cursor: pointer;
 }
 
-#header-div3 a {
-  display: block;
-  width: 100%;
-}
 
 #header-div1:hover, #header-div2:hover, #header-div3:hover {
   opacity: 0.5;
@@ -72,4 +71,59 @@ p {
 
 .angular-google-map-container { height: 300px; }
 
+.contractorphoto {
+  width: 100%;
+  margin-top: 40px;
+
+}
+
+#body-div2 {
+  margin-top: 30px;
+}
+.frontpagephoto {
+  width: 70%;
+}
+
+.frontpagephoto {
+
+    display:block;
+    
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
