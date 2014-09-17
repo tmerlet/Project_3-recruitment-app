@@ -148,21 +148,21 @@ class DashboardController < ApplicationController
     end
   end
 
-  def set_current_location
+  # def set_current_location
 
-    user = Contractor.find(params[:contractor_id])
-    currentlatitude = request.location.latitude
-    currentlongitude = request.location.longitude 
+  #   user = Contractor.find(params[:contractor_id])
+  #   currentlatitude = request.location.latitude
+  #   currentlongitude = request.location.longitude 
 
-    user.address.current_latitude = currentlatitude
-    user.address.current_longitude = currentlongitude
+  #   user.address.current_latitude = currentlatitude
+  #   user.address.current_longitude = currentlongitude
        
-    user.save 
+  #   user.save 
 
-    respond_to do |format|
-      format.html { render json: user }
-      format.json { render json: user }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html { render json: user }
+  #     format.json { render json: user }
+  #   end
+  # end
   
 end

@@ -1,8 +1,24 @@
 (function() {
 
-  var app = angular.module('recruitmentApp', ['ngAnimate', 'ngMap', 'ui.bootstrap']);
+  var app = angular.module('recruitmentApp', ['ngAnimate', 'google-maps', 'ui.bootstrap']);
 
   app.controller('contractorDashController', ["$scope", "$http", function($scope, $http) {
+
+    $scope.map = {
+        center: {
+            latitude: 45,
+            longitude: -73
+        },
+        zoom: 3
+    };
+
+    $scope.marker = {
+        id:0,
+        coords: {
+            latitude: 51.5,
+            longitude: -0
+        }
+    }
 
     $http.get('/dashboard/get_current_user_type.json').success(function(data){
 
@@ -13,10 +29,26 @@
 
         $scope.contractor = [];
 
+        
         $http.get('/dashboard/get_current_contractor.json').success(function(data){
           console.log(data)
           $scope.contractor = data
-          $scope.setCurrentLocation()
+          $scope.map.center.latitude = $scope.contractor.address.latitude
+          $scope.map.center.longitude = $scope.contractor.address.longitude
+          $scope.map.zoom = 8
+          // $scope.options = {scrollwheel: false};
+          
+          $scope.marker = {
+              id:0,
+              coords: {
+                  latitude: $scope.contractor.address.latitude,
+                  longitude: $scope.contractor.address.longitude
+              }
+          }
+
+
+          console.log($scope.map)
+          console.log($scope.marker)
           $scope.options = [{ name: "unlimited", id: 50000 }, { name: "1000 miles", id: 1000 }, { name: "500 miles", id: 500 }, { name: "200 miles", id: 200 }, { name: "100 miles", id: 100 }, { name: "50 miles", id: 50 }, { name: "20 miles", id: 20 }];      
           for(var i = 0; i < $scope.options.length; i++) { 
             if ($scope.options[i].id ==  $scope.contractor.distance_travel){
@@ -242,15 +274,15 @@
       
     }
 
-    $scope.setCurrentLocation = function() {
-      contractor = $scope.contractor
+    // $scope.setCurrentLocation = function() {
+    //   contractor = $scope.contractor
       
-      $http.put('dashboard/set_current_location.json', { contractor_id: contractor.id }).success(function (currentuser){
+    //   $http.put('dashboard/set_current_location.json', { contractor_id: contractor.id }).success(function (currentuser){
          
-         $scope.contractor.address.latitude = currentuser.address.latitude
-         $scope.contractor.address.longitude = currentuser.address.latitude
-       })
-    }
+    //      $scope.contractor.address.latitude = currentuser.address.latitude
+    //      $scope.contractor.address.longitude = currentuser.address.longitude
+    //    })
+    // }
 
 
 

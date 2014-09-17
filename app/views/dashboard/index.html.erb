@@ -49,19 +49,17 @@
 
             <div>
               My location: 
-              <map style="display:block;width:250px;height:250px" center="[<%= current_user.address.latitude %> , <%= current_user.address.longitude %>]">
-                <marker position="[<%= current_user.address.latitude %> , <%= current_user.address.longitude %>]" title="My home location"></marker>
-              </map>
-              <br/>
-              <button ng-click="setCurrentLocation()">
-                Set as current location
-              </button><br/>
-              <h4>Radio &amp; Uncheckable Radio</h4>
+                <google-map center="map.center" zoom="map.zoom">
+                
+                  <marker coords="marker.coords" idkey="0">
+                  </marker>
+              </google-map>
+              <!-- <h4>Radio &amp; Uncheckable Radio</h4>
                 <pre>{{radioModel || 'null'}}</pre>
                 <div class="btn-group">
                     <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Home'">Home</label>
                     <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Current'">Current</label>
-                </div>
+                </div> -->
             </div>       
 
           </div>
