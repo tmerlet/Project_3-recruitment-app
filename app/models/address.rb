@@ -1,7 +1,8 @@
 class Address < ActiveRecord::Base
-  attr_accessible :city, :country, :line1, :line2, :postcode, :addressable_id, :addressable_type
+  attr_accessible :city, :country, :line1, :line2, :postcode, :addressable_id, :addressable_type, :current_latatitude, :current_longitude, :use_dynamic_location
 
   geocoded_by :postcode 
+
   after_validation :geocode
 
   # , if: ->(obj){ obj.postcode.present? and obj.postcode_changed? } 

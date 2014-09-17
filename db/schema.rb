@@ -21,10 +21,13 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
     t.string   "country"
     t.float    "latitude"
     t.float    "longitude"
+    t.float    "current_latitude"
+    t.float    "current_longitude"
+    t.string   "use_dynamic_location"
     t.integer  "addressable_id"
     t.string   "addressable_type"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "companies", :force => true do |t|

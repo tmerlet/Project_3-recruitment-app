@@ -62,8 +62,6 @@ class RegistrationsController < Devise::RegistrationsController
 
      resource_updated = update_resource(resource, account_update_params)
 
-        
-     # binding.pry
      yield resource if block_given?
      if resource_updated 
         #removing al qualifications

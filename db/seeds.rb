@@ -12,27 +12,27 @@ qualification2 = Qualification.create(name: "level 2")
 qualification3 = Qualification.create(name: "level 3")
 
 contractor1 = Contractor.create(name: "Toby", email: "toby@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 50000, phone: "0131-346-0089")
-addresscont1 = Address.create(line1: "an edinburgh contractor address", city: "edinburgh", postcode: "eh12 6er", country: "uk" )
+addresscont1 = Address.create(line1: "an edinburgh contractor address", city: "Edinburgh", postcode: "eh12 6er", country: "uk" )
 contractor1.address = addresscont1
 contractor1.qualifications << qualification1
 
 contractor2 = Contractor.create(name: "Gareth", email: "gareth@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 500, phone: "0108-643-0900")
-addresscont2 = Address.create(line1: "a london contractor address", city: "edinburgh", postcode: "n1 5tq", country: "uk" )
+addresscont2 = Address.create(line1: "a london contractor address", city: "London", postcode: "n1 5tq", country: "uk" )
 contractor2.address = addresscont2
 contractor2.qualifications << qualification2
 
 contractor3 = Contractor.create(name: "Johana", email: "Johana@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 200, phone: "0131-346-0089")
-addresscont3 = Address.create(line1: "a bristol contractor address", city: "edinburgh", postcode: "bs11", country: "uk" )
+addresscont3 = Address.create(line1: "a bristol contractor address", city: "Bristol", postcode: "bs11", country: "uk" )
 contractor3.address = addresscont3
 contractor3.qualifications << qualification3
 
 contractor4 = Contractor.create(name: "David", email: "david@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 500, phone: "0108-643-0900")
-addresscont4 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+addresscont4 = Address.create(line1: "an aberdeen contractor address", city: "Aberdeen", postcode: "ab52", country: "uk" )
 contractor4.address = addresscont4
 contractor4.qualifications << qualification1
 
 contractor5 = Contractor.create(name: "Graham", email: "graham@gmail.com", password: "password", password_confirmation: "password", available_now: true, distance_travel: 50000, phone: "0131-346-0089")
-addresscont5 = Address.create(line1: "an aberdeen contractor address", city: "aberdeen", postcode: "ab52", country: "uk" )
+addresscont5 = Address.create(line1: "an aberdeen contractor address", city: "Aberdeen", postcode: "ab52", country: "uk" )
 contractor5.address = addresscont5
 contractor5.qualifications << qualification2
 

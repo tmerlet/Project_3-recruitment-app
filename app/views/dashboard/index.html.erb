@@ -55,8 +55,13 @@
               <br/>
               <button ng-click="setCurrentLocation()">
                 Set as current location
-              </button>
-
+              </button><br/>
+              <h4>Radio &amp; Uncheckable Radio</h4>
+                <pre>{{radioModel || 'null'}}</pre>
+                <div class="btn-group">
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Home'">Home</label>
+                    <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Current'">Current</label>
+                </div>
             </div>       
 
           </div>

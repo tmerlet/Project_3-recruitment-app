@@ -8,6 +8,9 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :country
       t.float :latitude
       t.float :longitude
+      t.float :current_latitude
+      t.float :current_longitude
+      t.string :use_dynamic_location
 
       # for the polymorphic association
       t.integer :addressable_id

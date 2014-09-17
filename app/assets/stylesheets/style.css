@@ -11,6 +11,8 @@ html, body {
   font-size: 18px
 }
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 #wrapper {
   margin: 0 auto;
 }

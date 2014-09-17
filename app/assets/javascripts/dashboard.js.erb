@@ -1,12 +1,13 @@
 (function() {
 
-  var app = angular.module('recruitmentApp', ['ngAnimate', 'ngMap']);
+  var app = angular.module('recruitmentApp', ['ngAnimate', 'ngMap', 'ui.bootstrap']);
 
   app.controller('contractorDashController', ["$scope", "$http", function($scope, $http) {
 
     $http.get('/dashboard/get_current_user_type.json').success(function(data){
 
       var current_user_type = data
+      
 
       if (current_user_type == "Contractor") {
 
@@ -15,6 +16,7 @@
         $http.get('/dashboard/get_current_contractor.json').success(function(data){
           console.log(data)
           $scope.contractor = data
+          $scope.setCurrentLocation()
           $scope.options = [{ name: "unlimited", id: 50000 }, { name: "1000 miles", id: 1000 }, { name: "500 miles", id: 500 }, { name: "200 miles", id: 200 }, { name: "100 miles", id: 100 }, { name: "50 miles", id: 50 }, { name: "20 miles", id: 20 }];      
           for(var i = 0; i < $scope.options.length; i++) { 
             if ($scope.options[i].id ==  $scope.contractor.distance_travel){
@@ -242,10 +244,8 @@
 
     $scope.setCurrentLocation = function() {
       contractor = $scope.contractor
-      contractorlat = $scope.contractor.address.latitude
-      contractorlon = $scope.contractor.address.longitude
       
-      $http.put('dashboard/set_current_location.json', { contractor_id: contractor.id, latitude: contractorlat, longitude: contractorlon }).success(function (currentuser){
+      $http.put('dashboard/set_current_location.json', { contractor_id: contractor.id }).success(function (currentuser){
          
          $scope.contractor.address.latitude = currentuser.address.latitude
          $scope.contractor.address.longitude = currentuser.address.latitude
