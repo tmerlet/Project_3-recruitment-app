@@ -22,6 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
     resource_saved = resource.save
     yield resource if block_given?
     if resource_saved
+      resource.role = "User"
       if params["qualifications"]
         params["qualifications"].each do |id| 
           qualification = Qualification.find(id.to_i)

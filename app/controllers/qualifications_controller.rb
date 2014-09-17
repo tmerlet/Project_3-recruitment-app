@@ -1,4 +1,5 @@
 class QualificationsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /qualifications
   # GET /qualifications.json
   def index

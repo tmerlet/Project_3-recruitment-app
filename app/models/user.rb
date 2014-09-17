@@ -10,4 +10,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :phone
   self.inheritance_column = "type"
+
+  def role?(role)
+    self.role.to_s == role.to_s
+  end
+  
 end

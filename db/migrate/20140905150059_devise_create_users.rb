@@ -25,6 +25,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email
       t.datetime :last_active
 
+      ## Cancan
+      t.string :role
+
       ## Sti
       t.string :type
 

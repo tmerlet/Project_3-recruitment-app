@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20140906122400) do
     t.string   "name"
     t.string   "phone"
     t.datetime "last_active"
+    t.string   "role"
     t.string   "type"
     t.integer  "company_id"
     t.date     "dob"
