@@ -1,2 +1,13 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+
+in order to trial this app, you can log in with:
+an employee: mike@gmail.com - password
+a conractor: graham@gmail.com - password
+
+For this app, I wanted to practice:  Angular - bootstrapCss - Single table inheritance - polymorphic assocations in particular. 
+
+Most of the logic is found in the Dashboard.js - dashboard.controller.  
+
+Any question, I can be reached on tmerlet@gmail.com. 
+
+Thanks for looking! 
