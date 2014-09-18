@@ -148,6 +148,8 @@ class DashboardController < ApplicationController
     end
   end
 
+# start of code to update to the current location of the user...  
+
   # def set_current_location
 
   #   user = Contractor.find(params[:contractor_id])
