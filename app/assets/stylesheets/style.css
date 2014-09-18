@@ -83,6 +83,21 @@ p {
 #body-div2 {
   margin-top: 30px;
 }
+
+.availablebuttongreen {
+  background-color: green;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
+
+.availablebuttonred {
+  background-color: red;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
+
 .frontpagephoto {
   width: 70%;
 }

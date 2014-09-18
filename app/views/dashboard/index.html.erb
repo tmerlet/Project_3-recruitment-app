@@ -10,22 +10,25 @@
             <hr/>
 
             <div>
-            <button ng-click="available()">
-              Available now: {{ contractor.available_now }}
+            <button ng-click="available()" ng-show="contractor.available_now" class="availablebuttongreen">
+              Available now
+            </button>
+            <button ng-click="available()" ng-hide="contractor.available_now" class="availablebuttonred">
+              Not available
             </button>
             </div>
 
             <hr/>
 
             <div>
-              I will travel:</br> 
+              <h4>I will travel:<h4> 
               <select ng-options="o.name for o in options" ng-model="selectedOption" ng-change="update()"></select>
             </div>
 
             <hr/>
 
             <div>
-              My location: 
+              <h4>My location:</h4>  
                 <google-map center="map.center" zoom="map.zoom">
                 
                   <marker coords="marker.coords" idkey="0">
