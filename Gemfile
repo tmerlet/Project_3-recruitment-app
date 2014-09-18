@@ -14,6 +14,7 @@ gem 'rmagick', :require => 'RMagick'
 gem 'geocoder'
 gem 'angularjs-rails'
 gem 'newrelic_rpm'
+gem 'railroady'
 
 group :development do
 gem 'letter_opener'
